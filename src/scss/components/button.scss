@@ -1,0 +1,224 @@
+@use "sass:map";
+@use "../abstracts/tokens";
+@use "../abstracts/mixins";
+
+.btn {
+  @extend %control;
+  @extend %unselectable;
+  justify-content: center;
+  border-color: var(--color-gray);
+  font-family: var(--font-family-heading);
+  line-height: 1;
+  padding: var(--space-s);
+  text-align: center;
+  white-space: nowrap;
+
+  --button-color: white;
+  --button-background: var(--color-primary);
+  --button-background-vary: var(--color-primary-vary);
+
+  [data-theme="a11y"] & {
+    --button-color: black;
+  }
+
+  &:hover {
+    border-color: var(--color-text);
+    text-decoration-line: none;
+  }
+
+  // Active state for standard & light themes.
+  &:active {
+    background-color: var(--button-background-active, var(--color-text));
+    border-color: var(--button-background-active, var(--color-text));
+    color: var(--button-color-active, white);
+  }
+
+  // Active state for dark & a11y themes.
+  [data-theme="dark"] &,
+  [data-theme="a11y"] & {
+    --button-background-active: white;
+    --button-color-active: var(--color-background);
+  }
+
+  //
+  // Text button
+  //
+
+  &.btn-text {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-text);
+
+    &:hover,
+    &:focus {
+      text-decoration-line: underline;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      border-color: transparent;
+      text-decoration-line: none;
+    }
+  }
+
+  //
+  // Primary and custom colored buttons
+  //
+
+  &.btn-primary,
+  &.btn-custom {
+    background-color: var(--button-background);
+    border-color: transparent;
+    color: var(--button-color);
+
+    &:hover,
+    &:active {
+      background-color: var(--button-background-vary);
+    }
+
+    &:disabled {
+      background-color: var(--button-background);
+      border-color: transparent;
+      color: var(--button-color);
+    }
+
+    //
+    // Outline variant
+    //
+
+    &.btn-outlined {
+      background-color: transparent;
+      border-color: var(--button-background);
+      color: var(--button-background);
+
+      &:hover,
+      &:focus {
+        background-color: var(--button-background);
+        color: var(--button-color);
+      }
+
+      &:disabled {
+        background-color: transparent;
+        border-color: transparent;
+        color: var(--button-background);
+      }
+    }
+  }
+
+  //
+  // Clipped buttons
+  //
+
+  &.btn-shape,
+  &.btn-wonky,
+  &.btn-goofy {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--button-color);
+    padding: var(--space-m);
+    // To ensure the pseudo element won't slip under the
+    // background plane under certain conditions
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: var(--button-background);
+      z-index: -1;
+    }
+
+    &:hover::before {
+      background-color: var(--button-background-vary);
+    }
+
+    @media (hover: hover) {
+      &:enabled:active {
+        transform: translateY(1px);
+      }
+    }
+
+    &:disabled {
+      background-color: transparent;
+      border-color: transparent;
+      color: var(--button-color);
+
+      &::before {
+        background-color: var(--button-background);
+      }
+    }
+  }
+
+  &.btn-shape::before {
+    clip-path: var(--button-shape);
+  }
+
+  &.btn-wonky::before {
+    @extend %clip-wonky;
+  }
+
+  &.btn-goofy::before {
+    @extend %clip-goofy;
+  }
+
+  //
+  // Gray and high contrast buttons
+  //
+
+  &.btn-gray {
+    --button-color: var(--color-text);
+    --button-background: var(--color-gray-light);
+    --button-background-vary: var(--color-gray);
+  }
+
+  &.btn-contrast {
+    --button-color: white;
+    --button-background: var(--color-text);
+    --button-background-vary: black;
+  }
+
+  [data-theme="dark"] &.btn-contrast,
+  [data-theme="a11y"] &.btn-contrast {
+    --button-color: var(--color-background);
+    --button-background: white;
+    --button-background-vary: #{map.get(tokens.$theming-light, "color-gray-light")};
+  }
+
+  //
+  // Sizes
+  //
+
+  &.btn-s {
+    font-size: var(--text-s);
+    padding: var(--space-xs);
+  }
+
+  &.btn-l {
+    font-size: var(--text-l);
+    padding: var(--space-m);
+
+    &.btn-wonky,
+    &.btn-goofy {
+      padding: var(--space-m) var(--space-l);
+    }
+  }
+
+  //
+  // Modifiers
+  //
+
+  &:disabled {
+    background-color: var(--color-background);
+    border-color: var(--color-text);
+    color: var(--color-text);
+    opacity: 0.5;
+  }
+
+  &.btn-block {
+    display: flex;
+    width: 100%;
+  }
+}

@@ -1,0 +1,111 @@
+---
+tags: utilities
+title: Flex
+subheading: Quickly manage the layout, alignment, and sizing of flex children elements
+---
+
+<h2>Enable flex behaviors</h2>
+
+<p>Apply <code>display</code> utilities to create a flexbox container and transform direct children elements into flex items. Flex containers and items are able to be modified further with additional flex properties.</p>
+
+{% snippet %}
+<div class="d-flex docs-box">A flexbox container</div>
+{% endsnippet %}
+
+{% snippet %}
+<div class="d-inline-flex docs-box">An inline flexbox container</div>
+{% endsnippet %}
+
+<p>Responsive variations also exist for <code>.d-flex</code> and <code>.d-inline-flex</code>.</p>
+
+<ul>
+  <li><code>.d-flex</code></li>
+  <li><code>.d-inline-flex</code></li>
+  <li><code>.d-flex@sm</code></li>
+  <li><code>.d-inline-flex@sm</code></li>
+  <li><code>.d-flex@md</code></li>
+  <li><code>.d-inline-flex@md</code></li>
+  <li><code>.d-flex@lg</code></li>
+  <li><code>.d-inline-flex@lg</code></li>
+</ul>
+
+<h2>Justify content</h2>
+
+<p>Use <code>justify-content</code> utilities on flexbox containers to change the alignment of flex items on the main axis (the x-axis to start, y-axis if <code>flex-direction: column</code> is set). You can choose <code>start</code> (browser default), <code>end</code>, <code>center</code>, <code>between</code>, <code>around</code>, or <code>evenly</code>.
+
+<div class="stack mb-m">
+  <div class="d-flex justify-content-start docs-box">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+  <div class="d-flex justify-content-end docs-box">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+  <div class="d-flex justify-content-center docs-box">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+  <div class="d-flex justify-content-between docs-box">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+  <div class="d-flex justify-content-around docs-box">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+</div>
+
+{% highlight %}
+<div class="d-flex justify-content-start">...</div>
+<div class="d-flex justify-content-end">...</div>
+<div class="d-flex justify-content-center">...</div>
+<div class="d-flex justify-content-between">...</div>
+<div class="d-flex justify-content-around">...</div>
+<div class="d-flex justify-content-evenly">...</div>
+{% endhighlight %}
+
+<h2>Align items</h2>
+
+<p>Use <code>align-items</code> utilities on flexbox containers to change the alignment of flex items on the cross axis (the y-axis to start, x-axis if <code>flex-direction: column</code> is set). You can choose from <code>start</code>, <code>end</code>, <code>center</code>, <code>baseline</code>, or <code>stretch</code> (browser default).</p>
+
+<div class="stack mb-m">
+  <div class="d-flex align-items-start docs-box" style="height: 100px;">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+  <div class="d-flex align-items-end docs-box" style="height: 100px;">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+  <div class="d-flex align-items-center docs-box" style="height: 100px;">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+  <div class="d-flex align-items-baseline docs-box" style="height: 100px;">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+  <div class="d-flex align-items-stretch docs-box" style="height: 100px;">
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+    <div class="docs-box">Flex item</div>
+  </div>
+</div>
+
+{% highlight %}
+<div class="d-flex align-items-start">...</div>
+<div class="d-flex align-items-end">...</div>
+<div class="d-flex align-items-center">...</div>
+<div class="d-flex align-items-baseline">...</div>
+<div class="d-flex align-items-stretch">...</div>
+{% endhighlight %}

@@ -1,0 +1,82 @@
+{
+  "props": {
+    "red": {
+      "value": "#e4160c",
+      "type": "color"
+    },
+    "pink": {
+      "value": "#b04c82",
+      "type": "color"
+    },
+    "purple": {
+      "value": "#682082",
+      "type": "color"
+    },
+    "blue": {
+      "value": "#1588c9",
+      "type": "color"
+    },
+    "turquoise": {
+      "value": "#01a097",
+      "type": "color"
+    },
+    "green": {
+      "value": "#43ab31",
+      "type": "color"
+    },
+    "yellow": {
+      "value": "#f8d300",
+      "type": "color"
+    },
+    "orange": {
+      "value": "#ec8e00",
+      "type": "color"
+    },
+    "black": {
+      "value": "#000",
+      "type": "color"
+    },
+    "gray-light": {
+      "value": "var(--color-black)",
+      "type": "css-value"
+    },
+    "gray": {
+      "value": "var(--color-primary)",
+      "type": "css-value"
+    },
+    "gray-dark": {
+      "value": "#fff",
+      "type": "color"
+    },
+    "primary": {
+      "value": "#7bed5d !important",
+      "type": "css-value"
+    },
+    "primary-vary": {
+      "value": "var(--color-primary) !important",
+      "type": "css-value"
+    },
+    "selection": {
+      "value": "#6ce8fc",
+      "type": "color"
+    },
+    "background": {
+      "value": "var(--color-black)",
+      "type": "css-value"
+    },
+    "text": {
+      "value": "#fff",
+      "type": "color"
+    },
+    "link": {
+      "value": "#fffe54 !important",
+      "type": "color"
+    }
+  },
+  "meta": {
+    "infix": "color",
+    "category": "theming-a11y",
+    "title": "Theme Colors — Accessible Variant",
+    "description": "Theme colors for accessible mode. Contrary to the light and dark theme, the default color palette is overwritten."
+  }
+}

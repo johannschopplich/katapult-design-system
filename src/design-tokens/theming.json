@@ -1,0 +1,22 @@
+{
+  "props": {
+    "primary": {
+      "value": "hsl(305, 37%, 47%)",
+      "type": "color"
+    },
+    "primary-vary": {
+      "value": "hsl(305, 37%, 37%)",
+      "type": "color"
+    },
+    "link": {
+      "value": "var(--color-primary)",
+      "type": "css-value"
+    }
+  },
+  "meta": {
+    "infix": "color",
+    "category": "theming",
+    "title": "Theme Colors",
+    "description": "Generic theme colors. Overridden by the current dominant theme or customizable on a per-project basis."
+  }
+}

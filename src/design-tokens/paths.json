@@ -1,0 +1,22 @@
+{
+  "props": {
+    "clip-wonky": {
+      "value": "polygon(0 0.25em, 100% 0, calc(100% - 0.5em) 100%, 0.3em 100%)",
+      "type": "css-value"
+    },
+    "clip-goofy": {
+      "value": "polygon(0 0, 100% 0.2em, calc(100% - 0.5em) 100%, 0.3em 100%)",
+      "type": "css-value"
+    },
+    "clip-skewed": {
+      "value": "polygon(0 0.25em, 100% 0, 100% calc(100% - 0.25em), 0% 100%)",
+      "type": "css-value"
+    }
+  },
+  "meta": {
+    "infix": "path",
+    "category": "paths",
+    "title": "Paths",
+    "description": "Common paths depicting KATAPULT-styled shapes, for example wonky and goofy buttons."
+  }
+}

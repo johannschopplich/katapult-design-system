@@ -1,0 +1,89 @@
+---
+tags: components
+title: Headings
+subheading: Simple headings to add depth to your page
+---
+
+<p>Standard HTML heading elements (<code>{{ '<h1>' | escape }}</code> – <code>{{ '<h6>' | escape }}</code>) have no styles applied to them by default. To give these elements the style of a heading, you have three options:</p>
+
+<ul>
+  <li>Apply the <code>.heading</code> class, which sets <code>font-family</code>, <code>line-height</code>, and <code>font-weight</code>, as well as a font size utility</li>
+  <li>Apply one of the <code>.heading-{1-6}</code> classes, which in addition to the properties set by <code>.heading</code> sets <code>font-size</code></li>
+  <li>Use a set of utility classes, like <code>.text-xl</code>, <code>.text-heading</code>, and <code>.lh-heading</code> to achieve a custom heading look</li>
+</ul>
+
+<p>Sometimes you want to match the font styling of a heading but cannot use an associated HTML element, therefore classes are favored over simply styling the HTML elements itself.</p>
+
+<h2>Sizes</h2>
+
+<p>There are six sizes available in total.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Heading class</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.heading-1</code></td>
+      <td><p class="heading-1">Heading 1</p></td>
+    </tr>
+    <tr>
+      <td><code>.heading-2</code></td>
+      <td><p class="heading-2">Heading 2</p></td>
+    </tr>
+    <tr>
+      <td><code>.heading-3</code></td>
+      <td><p class="heading-3">Heading 3</p></td>
+    </tr>
+    <tr>
+      <td><code>.heading-4</code></td>
+      <td><p class="heading-4">Heading 4</p></td>
+    </tr>
+    <tr>
+      <td><code>.heading-5</code></td>
+      <td><p class="heading-5">Heading 5</p></td>
+    </tr>
+    <tr>
+      <td><code>.heading-6</code></td>
+      <td><p class="heading-6">Heading 6</p></td>
+    </tr>
+  </tbody>
+</table>
+
+{% highlight %}
+<h1 class="heading-1">Heading 1</h1>
+<h2 class="heading-1">Heading 2</h2>
+<h3 class="heading-1">Heading 3</h3>
+<h4 class="heading-1">Heading 4</h4>
+<h5 class="heading-1">Heading 5</h5>
+<h6 class="heading-1">Heading 6</h6>
+{% endhighlight %}
+
+<h2>Combining headings</h2>
+
+<p>You can combine heading elements. The <code>.subheading</code> class provides the same functionality as its main counterpart, except setting the <code>font-weight</code> to <code>light</code>.</p>
+
+<p>As a rule of thumb, it is recommended to use a size difference of two. So if you use a <code>.heading-1</code>, combine it with a <code>.subheading-3</code>.
+
+<style>
+/* Counteract `.content` styles to achieve normal behaviour */
+.heading-1 + .subheading-3,
+.heading-2 + .subheading-4,
+.heading-3 + .subheading-5 {
+  margin-top: calc(-1 * var(--space-m));
+}
+</style>
+
+{% snippet %}
+<p class="heading-1">Heading 1</p>
+<p class="subheading-3 text-gray-dark">Subheading 3</p>
+
+<p class="heading-2">Heading 2</p>
+<p class="subheading-4">Subheading 4</p>
+
+<p class="heading-3">Heading 3</p>
+<p class="subheading-5">Subheading 5</p>
+{% endsnippet %}

@@ -1,0 +1,27 @@
+{
+  "name": "katapult-design-system-docs",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf _site",
+    "assets:build": "NODE_ENV=production rollup --config",
+    "assets:watch": "NODE_ENV=development rollup --config --watch",
+    "eleventy:build": "NODE_ENV=production eleventy",
+    "eleventy:watch": "NODE_ENV=development eleventy --serve",
+    "build": "npm run clean && npm run assets:build && npm run eleventy:build",
+    "start": "npm run clean && concurrently \"npm run assets:watch\" \"npm run eleventy:watch\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
+    "concurrently": "^9.2.1",
+    "fast-glob": "^3.3.3",
+    "highlight.js": "^11.11.1",
+    "html-minifier": "^4.0.0",
+    "rollup": "^4.57.1",
+    "rollup-plugin-scss": "^4.0.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.97.3"
+  }
+}

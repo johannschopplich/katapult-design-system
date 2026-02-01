@@ -1,0 +1,48 @@
+@use "sass:map";
+@use "../abstracts/functions";
+@use "../abstracts/tokens";
+
+$global: functions.collect(
+  tokens.$colors,
+  tokens.$colors-dark,
+  tokens.$colors-matt,
+  tokens.$theming,
+  tokens.$typography,
+  tokens.$spacing,
+  tokens.$paths
+);
+
+:root {
+  @each $key, $value in $global {
+    --#{"" + $key}: #{$value};
+  }
+}
+
+:root:not([data-theme]),
+[data-theme="light"] {
+  @each $prop, $value in tokens.$theming-light {
+    --#{"" + $prop}: #{$value};
+  }
+}
+
+[data-theme="dark"] {
+  @each $prop, $value in tokens.$theming-dark {
+    --#{"" + $prop}: #{$value};
+  }
+}
+
+[data-theme="a11y"] {
+  @each $prop, $value in tokens.$theming-a11y {
+    --#{"" + $prop}: #{$value};
+  }
+
+  ::selection {
+    background: map.get(tokens.$theming-a11y, "color-selection");
+    color: black;
+  }
+}
+
+[data-theme] {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}

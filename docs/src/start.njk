@@ -1,0 +1,65 @@
+---
+title: Start
+subheading: You only need one CSS and optionally a JS file
+---
+
+<h2>Concepts for the CSS framework</h2>
+
+<p>Core of the KATAPULT Design System is a <strong>CSS framework</strong>, meaning that the end result is simply a single CSS file: <a href="https://gitlab.com/katapult-magazin/katapult-design-system/-/blob/master/dist/kds.css">kds.css</a>.</p>
+
+<p>All approaches of building the CSS framework can be boiled down to:</p>
+
+<ul>
+  <li>Design tokens as a holistic variable foundation</li>
+  <li>Basic reset/normalization of browser inconsistencies</li>
+  <li>Reponsive design, specifically mobile-first</li>
+  <li>Customizable via CSS custom properties</li>
+  <li>Themes (light, dark and accessible variations)</li>
+  <li>Utility-first</li>
+  <li>Modern browsers only</li>
+</ul>
+
+<p>Because the CSS framework solely comprises CSS classes, the HTML code you write has no impact on the styling of your page. That's why for example <code>.form-control</code> exists as a class, so you can choose which <code>{{ '<input type="text">' | escape }}</code> elements you want to style.</p>
+
+<p>The framework only styles generic HTML tags directly:</p>
+<ul>
+  <li>Tags like <code>{{ '<html>' | escape }}</code> and <code>{{ '<a>' | escape }}</code> to define a basic style for every page (found in <a href="https://gitlab.com/katapult-magazin/katapult-design-system/-/blob/master/src/scss/base/generic.scss">generic.scss</a>)</li>
+  <li>The <code>.content</code> class used for any textual content, like WYSIWYG</li>
+</ul>
+
+<h2>JavaScript counterpart (optional)</h2>
+
+<p>A small JavaScript bundle ships along the CSS framework following the same file naming convention: <a href="https://gitlab.com/katapult-magazin/katapult-design-system/-/blob/master/dist/kds.js">kds.js</a>. For the time being it serves only one purpose:</p>
+
+<ul>
+  <li>Register KATAPULT web components: <code>{{ '<k-box-header>' | escape }}</code></li>
+</ul>
+
+<p>If you use a custom JavaScript build setup for your project, you don't have to include the <code>kds.js</code>. Instead, import what you need, when you need it.</p>
+
+<h2>How to include KDS into your project</h2>
+
+<p>You can choose between two options to get started with the framework:</p>
+<ul>
+  <li>Use the cloud-hosted version (recommended).</li>
+  <li><a href="https://gitlab.com/katapult-magazin/katapult-design-system/-/releases">Download the current release</a> and include the distributed CSS (<code>dist/kds.css</code>) and JavaScript (<code>dist/kds.js</code> and <code>dist/kds-head.js</code>) file manually into your project.</li>
+</ul>
+
+<p>In both cases, add the following <code>{{ '<link>' | escape }}</code> elements to your document head. For example for the latter option:</p>
+
+{% highlight %}
+<!-- Link to the current release of the framework -->
+<link href="https://storage.googleapis.com/katapult-cdn/kds/{{ site.version }}/kds.css" rel="stylesheet">
+
+<!-- Fetch Oswald, KATAPULT's identity font -->
+<link href="https://storage.googleapis.com/katapult-cdn/fonts/Oswald.css" rel="stylesheet">
+<link rel="preload" href="https://storage.googleapis.com/katapult-cdn/fonts/Oswald.var.woff2" as="font" type="font/woff2" crossorigin>
+{% endhighlight %}
+
+<p>You may also add the JavaScript file right before your closing <code>{{ '<body>' | escape }}</code> tag:</p>
+
+{% highlight %}
+<script src="https://storage.googleapis.com/katapult-cdn/kds/{{ site.version }}/kds.js" async></script>
+{% endhighlight %}
+
+<p>It is planned to open source this design system later on. If so, we'll publish the framwork to NPM as well.</p>

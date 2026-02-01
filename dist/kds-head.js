@@ -1,0 +1,1 @@
+(()=>{const e=window.matchMedia("(prefers-color-scheme: dark)").matches,t=window.matchMedia("(prefers-contrast: high)").matches||window.matchMedia("(-ms-high-contrast: active)").matches;document.documentElement.dataset.theme=localStorage.getItem("color-schema")||(t?"a11y":e?"dark":"light")})();

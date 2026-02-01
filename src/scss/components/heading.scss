@@ -1,0 +1,17 @@
+.heading,
+.subheading,
+[class*="heading-"] {
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-heading);
+  font-weight: 600;
+}
+
+.subheading,
+[class*="subheading-"] {
+  font-weight: 300;
+}
+
+.heading-1, .subheading-1 { font-size: var(--text-xxxl); }
+.heading-2, .subheading-2 { font-size: var(--text-xxl); }
+.heading-3, .subheading-3 { font-size: var(--text-xl); }
+.heading-4, .subheading-4 { font-size: var(--text-l); }

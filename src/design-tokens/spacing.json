@@ -1,0 +1,42 @@
+{
+  "props": {
+    "xxs": {
+      "value": "0.125rem",
+      "type": "length"
+    },
+    "xs": {
+      "value": "0.25rem",
+      "type": "length"
+    },
+    "s": {
+      "value": "0.5rem",
+      "type": "length"
+    },
+    "m": {
+      "value": "1rem",
+      "type": "length"
+    },
+    "l": {
+      "value": "2rem",
+      "type": "length"
+    },
+    "xl": {
+      "value": "4rem",
+      "type": "length"
+    },
+    "xxl": {
+      "value": "8rem",
+      "type": "length"
+    },
+    "px": {
+      "value": "2px",
+      "type": "length"
+    }
+  },
+  "meta": {
+    "infix": "space",
+    "category": "spacing",
+    "title": "Spacing",
+    "description": "Sensible spacing defaults. Since declared in root em's, they are follow the fluid type scaling."
+  }
+}

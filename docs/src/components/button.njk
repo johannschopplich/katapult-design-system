@@ -1,0 +1,166 @@
+---
+tags: components
+title: Button
+subheading: The classic button, in different colors, sizes, and states
+---
+
+<p>The <strong>button</strong> is an essential element of any design. it is meant to look and behave as an interactive element of your page.</p>
+<p>The button class can be used on:</p>
+<ul>
+  <li><code>{{ '<a>' | escape }}</code> anchor links</li>
+  <li><code>{{ '<button>' | escape }}</code> form buttons</li>
+  <li><code>{{ '<input type="submit">' | escape }}</code> submit inputs</li>
+  <li><code>{{ '<input type="reset">' | escape }}</code> reset inputs</li>
+</ul>
+
+{% snippet %}
+<button class="btn">Standard Button</button>
+{% endsnippet %}
+
+<h2>Button styles</h2>
+
+<p>The button is available in <code>primary</code>, <code>text</code>, <code>custom</code>, and <code>wonky/goofy</code> variants. Many of them are customizable in text and background color.</p>
+
+<h3>Primary</h3>
+
+{% snippet %}
+<button class="btn btn-primary">Primary</button>
+{% endsnippet %}
+
+<h3>Primary outlined</h3>
+
+{% snippet %}
+<button class="btn btn-primary btn-outlined">Outlined</button>
+{% endsnippet %}
+
+<h3>Text</h3>
+
+{% snippet %}
+<button class="btn btn-text">Text</button>
+{% endsnippet %}
+
+<h3>Goofy & wonky</h3>
+
+{% snippet %}
+<button class="btn btn-goofy">Goofy</button>
+<button class="btn btn-wonky">Wonky</button>
+{% endsnippet %}
+
+<h2>Button colors</h2>
+
+<h3>Gray and high contrast variants</h3>
+
+{% snippet %}
+<button class="btn btn-custom btn-gray">Primary</button>
+<button class="btn btn-wonky btn-gray">Primary</button>
+{% endsnippet %}
+
+<p>The high contrast modifier <code>.btn-contrast</code> adapts to the current theme:</p>
+<ul>
+  <li>Black button in light mode.</li>
+  <li>White button in dark mode.</li>
+</ul>
+
+{% snippet %}
+<button class="btn btn-custom btn-contrast">Primary</button>
+<button class="btn btn-wonky btn-contrast">Primary</button>
+{% endsnippet %}
+
+<h3>Customized by CSS variable</h3>
+
+<p>The <code>.btn-custom</code> button variant accepts the following custom properties:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Custom property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--button-color</code></td>
+      <td>The text color (white if not given)</td>
+    </tr>
+    <tr>
+      <td><code>--button-background</code></td>
+      <td>The background color</td>
+    </tr>
+    <tr>
+      <td><code>--button-background-vary</code></td>
+      <td>The background color on hover/focus</td>
+    </tr>
+  </tbody>
+</table>
+
+{% snippet %}
+<button class="btn btn-custom" style="--button-background: var(--color-red); --button-background-vary: var(--color-dark-red);">Custom</button>
+{% endsnippet %}
+
+<h2>Button sizes</h2>
+
+<p>The button comes in 4 different sizes:</p>
+<ul>
+  <li>small</li>
+  <li>normal (equals medium)</li>
+  <li>large</li>
+</ul>
+
+{% snippet %}
+<button class="btn btn-s">Small</button>
+<button class="btn">Normal</button>
+<button class="btn btn-l">Large</button>
+{% endsnippet %}
+
+{% snippet %}
+<button class="btn btn-goofy btn-l">Goofy</button>
+<button class="btn btn-wonky btn-l">Wonky</button>
+{% endsnippet %}
+
+<h2>Button shapes</h2>
+
+<p>You can customize the shape of a button with the <code>--button-shape</code> custom property.</p>
+
+{% snippet %}
+<button class="btn btn-shape" style="--button-shape: var(--path-clip-skewed);">Custom shape</button>
+{% endsnippet %}
+
+<h2>Button states</h2>
+
+<p>KATAPULT Design System styles the different states of its buttons. Each state is available as a pseudo-class:</p>
+<ul>
+  <li><code>:hover</code></li>
+  <li><code>:focus</code></li>
+  <li><code>:active</code></li>
+</ul>
+
+<h3>Disabled</h3>
+
+<p>Button elements support the use of the <code>disabled</code> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">Boolean HTML attribute</a>, which prevents the user from interacting with the button.</p>
+
+{% snippet %}
+<button class="btn" title="Disabled button" disabled>Disabled</button>
+<button class="btn btn-text" title="Disabled button" disabled>Disabled</button>
+<button class="btn btn-primary" title="Disabled button" disabled>Disabled</button>
+<button class="btn btn-wonky" title="Disabled button" disabled>Disabled</button>
+{% endsnippet %}
+
+<h2>Button states</h2>
+
+<p>KATAPULT Design System styles the different states of its buttons. Each state is available as a pseudo-class:</p>
+<ul>
+  <li><code>:hover</code></li>
+  <li><code>:focus</code></li>
+  <li><code>:active</code></li>
+</ul>
+
+<h3>Disabled</h3>
+
+<p>Button elements support the use of the <code>disabled</code> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">Boolean HTML attribute</a>, which prevents the user from interacting with the button.</p>
+
+{% snippet %}
+<button class="btn" title="Disabled button" disabled>Disabled</button>
+<button class="btn btn-text" title="Disabled button" disabled>Disabled</button>
+<button class="btn btn-primary" title="Disabled button" disabled>Disabled</button>
+<button class="btn btn-wonky" title="Disabled button" disabled>Disabled</button>
+{% endsnippet %}

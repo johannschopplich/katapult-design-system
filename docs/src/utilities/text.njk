@@ -1,0 +1,78 @@
+---
+tags: utilities
+title: Text
+subheading: Common text utilities to control font sizes, alignment, weight, and more
+---
+
+<h2>Font family</h2>
+
+<p>Both main <code>font-family</code>'s are defined as <a href="{{ '/tokens' | url }}">design tokens</a> keys and provided as CSS custom properties. Those in return are available as utility classes:
+<ul>
+  <li><code>.text-heading</code> (inherits <code>--font-family-heading</code>)</li>
+  <li><code>.text-base</code> (inherits <code>--font-family-base</code>)</li>
+</ul>
+
+<p>By default, <code>--font-family-heading</code> is applied to all headline elements (<code>h1</code> – <code>h6</code>). All other elements default to <code>--font-family-base</code>, which is applied to the document element.</p>
+
+{% snippet %}
+<p class="text-heading text-l">Heading</p>
+<p class="text-base">Text-level</p>
+{% endsnippet %}
+
+<h2>Font sizes</h2>
+
+<p>To customize the <code>font-size</code> on an element level, eight utilities classes are on hand for you to use. For all of them, responsive classes are available that use the same viewport width breakpoints as the grid system.</p>
+
+{% snippet %}
+<p class="text-xs">XSmall text</p>
+<p class="text-s">Small text</p>
+<p class="text-m">Medium text (default)</p>
+<p class="text-l">Large text</p>
+<p class="text-xl">XLarge text</p>
+<p class="text-xxl">XXLarge text</p>
+<p class="text-xxxl">XXXLarge text</p>
+<p class="text-hero">Hero-sized text</p>
+
+<p class="text-m text-xl@sm">XLarge text on small viewports or wider</p>
+<p class="text-m text-xl@md">XLarge text on medium viewports or wider</p>
+<p class="text-m text-xl@lg">XLarge text on large viewports or wider</p>
+{% endsnippet %}
+
+<h2>Text alignment</h2>
+
+<p>Easily realign text to components with the following text alignment classes.</p>
+
+{% snippet %}
+<p class="text-left">Left aligned text</p>
+<p class="text-center">Center aligned text</p>
+<p class="text-right">Right aligned text</p>
+{% endsnippet %}
+
+<h2>Font weight</h2>
+
+<p>Quickly change the weight (boldness) of text or italicize text.</p>
+
+{% snippet %}
+<p class="text-light">Light weight text</p>
+<p class="text-normal">Normal weight text</p>
+<p class="text-medium">Medium weight text</p>
+<p class="text-semibold">Semibold weight text</p>
+<p class="text-bold">Bold text</p>
+<p class="text-bolder">Bolder weight text</p>
+{% endsnippet %}
+
+<h2>Line height</h2>
+
+<p>Change the line height with <code>.lh-*</code> utilities.</p>
+
+<p>The default line height can be customized by adjusting the CSS variables <code>--line-height-base</code> and <code>--line-height-heading</code> to your needs.</p>
+
+{% snippet %}
+<p class="lh-1">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Cras mattis pannenkoek purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.</p>
+<p class="lh-heading">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Cras mattis pannenkoek purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.</p>
+<p class="lh-base">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Cras mattis pannenkoek purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.</p>
+{% endsnippet %}
+
+<h2>Colorizing text</h2>
+
+<p>See the color section of the <a href="{{ '/utilities/colors/' | url }}">colors</a> page to learn how to colorize text.</p>

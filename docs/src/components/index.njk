@@ -1,0 +1,15 @@
+---
+title: Components
+subheading: Essential interface elements that only require a single CSS class
+---
+
+<nav class="stack" style="--stack-gap: 1.5rem;">
+  {%- for item in collections.components -%}
+    <div class="box position-relative">
+      <a class="stretched-link" href="{{ item.url | url }}">
+        <h2 class="text-xxl">{{ item.data.title }}</h2>
+      </a>
+      <p>{{ item.data.subheading }}</p>
+    </div>
+  {%- endfor -%}
+</nav>

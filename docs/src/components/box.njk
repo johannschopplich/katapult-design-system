@@ -1,0 +1,96 @@
+---
+tags: components
+title: Box
+subheading: Contain other elements and distinguish content from its backdrop
+---
+
+<h2>Basic box</h2>
+
+<p>The basic box element is simply a container with a border, box-shadow, and some padding.</p>
+
+{% snippet %}
+<div class="box">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+</div>
+{% endsnippet %}
+
+<h2>Skewed box</h2>
+
+<p>The skewed box is intended to stand in contrast to its background.</p>
+
+<div class="bg-yellow py-xl mb-m">
+  <div class="container-sm">
+    <div class="box-skewed">
+      <div class="content">
+        <h2 class="heading-2">The standard Lorem Ipsum passage, used since the 1500s</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% highlight %}
+<div class="box-skewed">
+  <div class="content">
+    <h2 class="heading-2">The standard Lorem Ipsum passage, used since the 1500s</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+{% endhighlight %}
+
+<h2>Header box</h2>
+
+<p>The skewed header is an integral part of KATAPULT used in a varitey of scenarios, e.g. <strong>social media posts</strong> and print products. Therefore it has to also exist on the web.</p>
+
+<div class="mb-m">
+  <div class="box-header" style="--box-background: var(--color-primary);">
+    <p class="heading-2">Default header box</p>
+  </div>
+</div>
+
+{% highlight %}
+<div class="box-header" style="--box-background: var(--color-primary);">
+  <h2 class="heading-2">Default header box</h2>
+</div>
+{% endhighlight %}
+
+<p>In most use cases when a skewed header is desired, the header is also the first section of the page. In this context, the bottom part of the background as well as the content is rotated by <strong>1 degree</strong>.
+
+<p>Place your content inside the <code>.box-header</code> class. It expects one children element on which the rotation by 1 degree is performed If you want to put more than one child element into the skewed container, wrap it into for example a <code>{{ '<div>' | escape }}</code>.</p>
+
+<p>Customize the background color with the <code>--box-background</code> CSS variable.</p>
+
+<p>A top and bottom padding of <code>var(--space-m)</code> is applied on the header direct child. It is customizable by your needs –  see the extended example below.</p>
+
+<p>For the angled background calculation to work, a width of <code>100vw</code> of the <code>.box-header</code> container is presumed. If you want to use the skewed header in smaller container's and/or need a <strong>different angle</strong>, head over to the the <a href="#k-box-header">web component version</a>.</p>
+
+<h3 id="k-box-header">Variable width and custom angle</h3>
+
+<p>The <code>{{ '<k-box-header>' | escape }}</code> web component is part of the internal JavaScript framework. It may be used inside containers that are <strong>smaller</strong> than the full viewport width. The angled background stays the same when the browser is resized.</p>
+
+<p>Available attributes for the component:</p>
+<ul>
+  <li><code>angle</code>: An angle in one of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/angle">angle CSS data types</a></li>
+</ul>
+
+{% snippet %}
+<k-box-header angle="2deg">
+  <h3 class="heading-3">Self-contained header</h3>
+</k-box-header>
+{% endsnippet %}
+
+<h3>Extended example inside fixed-ratio container</h3>
+
+{% snippet %}
+<div class="aspect-ratio ratio-1by1 bg-yellow">
+  <div>
+    <k-box-header angle="2deg">
+      <h3 class="heading-3 py-s">Accessible websites</h3>
+    </k-box-header>
+
+    <div class="content p-m">
+      <p>Companies are randomly controlled by the state “Digitalisation Directorate”. If a Norwegian website does not meet the legal criteria, sanctions follow.</p>
+    </div>
+  </div>
+</div>
+{% endsnippet %}

@@ -1,0 +1,43 @@
+---
+title: Design system tokens
+subheading: The visual design atoms that style most elements and components
+---
+
+<style>
+.table td:first-child {
+  min-width: 50%;
+}
+</style>
+
+<p>Design tokens are the visual <strong>design atoms</strong> of the design system – specifically, they are named entities that store visual design attributes. We use them in place of hard-coded values (such as <code>hsl</code> values for color or <code>rem</code> values for spacing) in order to maintain a scalable and consistent visual system for UI development.</p>
+
+<p>Those visual design atoms are centralized and propagated as tokens to any project, designer or developer adopting the system, as easy-to-use, predictable JSON files, structured by scope category: <a href="https://gitlab.com/katapult-magazin/katapult-design-system/-/blob/master/src/design-tokens">tokens.json</a></p>
+
+<p>Most of the following design tokens are available by default in the <code>kds.css</code> as CSS custom property. To access these CSS variables, append a double dash to the token key. For example: <code>var(--space-m)</code> gives you acces to use the <code>space-m</code> spacing unit, resulting in <code>1rem</code>.</p>
+
+{% for scopeName, scopeProperties in site.tokens %}
+  <h3 class="text-normal mt-xl">{{ scopeProperties.meta.title }}</h3>
+  <p>{{ scopeProperties.meta.description | safe }}</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Token property</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for key, data in scopeProperties.props %}
+        {% set colorPreview = '' %}
+
+        {% if string.startsWith(data.value, 'hsl') or string.startsWith(data.value, '#') %}
+          {% set colorPreviewProperty = ' --color-preview: ' + data.value + ';' %}
+        {% endif %}
+
+        <tr>
+          <td><code>{{ scopeProperties.meta.infix + '-' + key }}</code></td>
+          <td><code style="color: var(--color-text);{{ colorPreviewProperty }}">{{ data.value }}</code></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endfor %}

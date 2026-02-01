@@ -1,0 +1,104 @@
+---
+tags: utilities
+title: Spacing
+subheading: Shorthand responsive margin and padding utility classes to modify an element's appearance
+---
+
+<h2>How it works</h2>
+
+<p>Assign responsive-friendly <code>margin</code> or <code>padding</code> values to an element or a subset of its sides with the following shorthand classes. Includes support for individual properties, all properties, and vertical and horizontal properties. All spaces are based on the <a href="{{ '/tokens' | url }}">design tokens</a> spacing unit. Classes are built from a default design tokens map ranging from <code>0.125rem</code> (<code>var(--space-xxs)</code>) to <code>8rem</code> (<code>var(--space-xxl)</code>).</p>
+
+<h2>Notation</h2>
+
+<p>Spacing utilities can apply across all breakpoints or a specific range, if you include a breakpoint abbreviation.</p>
+
+<p>The classes are named using the format <code>{property}{sides}-{size}</code> for <code>xs</code> and <code>{property}{sides}-{size}@{breakpoint}</code> for <code>sm</code>, <code>md</code> and <code>lg</code>. Head over to the <a href="{{ '/layout/breakpoints' | url }}">built-in breakpoints</a> page to find out more.</p>
+
+<p>Where <em>property</em> is one of:</p>
+
+<ul>
+  <li><code>m</code> - for classes that set <code>margin</code></li>
+  <li><code>p</code> - for classes that set <code>padding</code></li>
+</ul>
+
+<p>Where <em>sides</em> is one of:</p>
+
+<ul>
+  <li><code>t</code> - for classes that set <code>margin-top</code> or <code>padding-top</code></li>
+  <li><code>b</code> - for classes that set <code>margin-bottom</code> or <code>padding-bottom</code></li>
+  <li><code>l</code> - for classes that set <code>margin-left</code> or <code>padding-left</code></li>
+  <li><code>r</code> - for classes that set <code>margin-right</code> or <code>padding-right</code></li>
+  <li><code>x</code> - for classes that set both <code>*-left</code> and <code>*-right</code></li>
+  <li><code>y</code> - for classes that set both <code>*-top</code> and <code>*-bottom</code></li>
+  <li>blank - for classes that set a margin or padding on all 4 sides of the element</li>
+</ul>
+
+<p>Where <em>size</em> is one of:</p>
+
+<ul>
+  <li><code>0</code> - for classes that eliminate the margin or padding by setting it to <code>0</code></li>
+  <li><code>xxs</code> - for classes that set the margin or padding to <code>0.125rem</code> (<code>var(--space-xxs)</code>)</li>
+  <li><code>xs</code> - for classes that set the margin or padding to <code>0.25rem</code> (<code>var(--space-xs)</code>)</li>
+  <li><code>s</code> - for classes that set the margin or padding to <code>0.5rem</code> (<code>var(--space-s)</code>)</li>
+  <li><code>m</code> - for classes that set the margin or padding to <code>1rem</code> (<code>var(--space-m)</code>)</li>
+  <li><code>l</code> - for classes that set the margin or padding to <code>2rem</code> (<code>var(--space-l)</code>)</li>
+  <li><code>xl</code> - for classes that set the margin or padding to <code>4rem</code> (<code>var(--space-xl)</code>)</li>
+  <li><code>xxl</code> - for classes that set the margin or padding to <code>8rem</code> (<code>var(--space-xxl)</code>)</li>
+  <li><code>auto</code> - for classes that set the margin to <code>auto</code></li>
+</ul>
+
+<h2>Responsive spacings</h2>
+
+<p>In addition to all spacing options, breakpoints may be used to handle <code>margin</code> and <code>padding</code> for responsive layouts.</p>
+
+{% snippet %}
+<div class="px-s px-m@sm px-l@lg docs-box">
+  Growing padding per breakpoint
+</div>
+{% endsnippet %}
+
+<h2>Examples</h2>
+
+{% snippet %}
+<div class="mx-auto p-s docs-box" style="width: 200px;">
+  Centered element
+</div>
+{% endsnippet %}
+
+{% snippet %}
+<div class="p-m docs-box">
+  All-sides padding
+</div>
+<div class="mt-m p-s docs-box">
+  Top margin
+</div>
+{% endsnippet %}
+
+{% snippet %}
+<div class="px-m docs-box">
+  Padding at the x-axis
+</div>
+{% endsnippet %}
+
+<h2>How it looks under the hood</h2>
+
+<p>Here are some representative examples of these classes:</p>
+
+{% highlight 'scss' %}
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.ml-s {
+  margin-left: var(--space-s) !important;
+}
+
+.p-m {
+  padding: var(--space-m) !important;
+}
+
+.px-l {
+  padding-left: var(--space-l) !important;
+  padding-right: var(--space-l) !important;
+}
+{% endhighlight %}

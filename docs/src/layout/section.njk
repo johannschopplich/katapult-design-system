@@ -1,0 +1,33 @@
+---
+tags: layout
+title: Section
+subheading: Divide a page into padded sections
+---
+
+<p>The <code>.section</code> class is intended as direct children of landmarks, e.g. of <code>{{ '<body>' | escape }}</code>, and to wrap <code>.container</code>'s.</p>
+
+{% highlight %}
+<main>
+  <section class="section">
+    <div class="container">
+      <section class="content">
+        <h1>Section title</h1>
+        <h2>A simple container to divide your page into sections, like the one you're currently reading.</h2>
+      </section>
+    </div>
+  </section>
+</main>
+{% endhighlight %}
+
+{% snippet %}
+<div class="section">
+  <div class="container docs-box">
+    <p>A simple container to divide your page into sections, like the one you're currently reading.</p>
+  </div>
+</div>
+<div class="section">
+  <div class="container docs-box">
+    <p>A simple container to divide your page into sections, like the one you're currently reading.</p>
+  </div>
+</div>
+{% endsnippet %}

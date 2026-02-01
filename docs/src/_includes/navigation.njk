@@ -1,0 +1,38 @@
+<nav id="menu" class="docs-menu pb-l pr-l@md pr-xl@lg">
+  <ul class="menu-categories stack-v" style="--stack-gap: var(--space-s);">
+    {% for item in navigation %}
+      {% set relAttribute = '' %}
+      {% set currentAttribute = '' %}
+
+      {% if item.rel %}
+        {% set relAttribute = ' rel="' + item.rel + '"' %}
+      {% endif %}
+
+      {% if page.url == item.path %}
+        {% set currentAttribute = ' aria-current="page"' %}
+      {% endif %}
+
+      <li>
+        <a href="{{ item.path | url }}"{{ relAttribute | safe }}{{ currentAttribute | safe }}>
+          {{- item.title -}}
+        </a>
+        {% if item.children.length %}
+          <ul class="menu-subcategories">
+            {% for child in item.children %}
+              {% set currentAttribute = '' %}
+              {% if page.url == item.path + child.path %}
+                {% set currentAttribute = ' aria-current="page"' %}
+              {% endif %}
+
+              <li>
+                <a href="{{ item.path + child.path | url }}"{{ currentAttribute | safe }}>
+                  {{- child.title -}}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {% endif %}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

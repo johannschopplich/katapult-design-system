@@ -1,0 +1,26 @@
+{
+  "props": {
+    "min-width": {
+      "value": "320px",
+      "type": "length"
+    },
+    "max-width": {
+      "value": "1280px",
+      "type": "length"
+    },
+    "min-size": {
+      "value": "16px",
+      "type": "length"
+    },
+    "max-size": {
+      "value": "18px",
+      "type": "length"
+    }
+  },
+  "meta": {
+    "infix": "fluid",
+    "category": "fluid-scaling",
+    "title": "Linearly Type and Space Scaling",
+    "description": "Definitions to fluidly scale the root <code>font-size</code> from a minimum of 16px (at a 320px viewport) to a maximum of 18px (at a 1280px viewport) depending on the screen size. Consequently, every <code>rem</code> value will scale accordingly."
+  }
+}

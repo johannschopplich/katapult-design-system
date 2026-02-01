@@ -1,0 +1,23 @@
+.notification {
+  display: block;
+  background-color: var(--notification-background, var(--color-primary));
+  color: var(--notification-color, white);
+  padding: var(--space-m) 1.25rem;
+
+  a:not(.btn) {
+    color: currentColor;
+    text-decoration-line: underline;
+  }
+
+  &.notification-error {
+    --notification-background: var(--color-red);
+  }
+
+  &.notification-success {
+    --notification-background: var(--color-green);
+  }
+
+  [data-theme="a11y"] & {
+    --notification-color: black;
+  }
+}

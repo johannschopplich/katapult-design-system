@@ -1,0 +1,154 @@
+---
+tags: layout
+title: Breakpoints
+subheading: Breakpoints are the triggers for how your layout responsive changes across device or viewport sizes
+---
+
+<p>Breakpoints are the building blocks of responsive design. Use them to control when your layout can be adapted at a particular viewport or device size. Mobile first, responsive design is the goal. This framework's CSS aims to apply the bare minimum of styles to make a layout work at the smallest breakpoint, and then layers on styles to adjust that design for larger devices.</p>
+
+<h2>Available Breakpoints</h2>
+
+<p>This framework includes four default breakpoints. These can be customized at any time via Sass: <a href="https://gitlab.com/katapult-magazin/katapult-design-system/-/blob/master/src/scss/abstracts/_breakpoints.scss">breakpoints.scss</a>.</p>
+
+{% highlight 'scss' %}
+@use "src/scss/abstracts/breakpoints" with (
+  $default: (
+    xs: 0,
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+  )
+);
+{% endhighlight %}
+
+<p>Available class infixes with its corresponsing dimension:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Breakpoint</th>
+      <th>Class infix</th>
+      <th>Dimensions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>X-Small</td>
+      <td><em>None</em></td>
+      <td>0–640px</td>
+    </tr>
+    <tr>
+      <td>Small</td>
+      <td><code>sm</code></td>
+      <td>≥ 640px</td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td><code>md</code></td>
+      <td>≥ 768px</td>
+    </tr>
+    <tr>
+      <td>Large</td>
+      <td><code>lg</code></td>
+      <td>≥ 1024px</td>
+    </tr>
+    <tr>
+      <td>Extra large</td>
+      <td><code>xl</code></td>
+      <td>≥ 1280px</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Utility breakpoint infix</h2>
+
+<p>Some elements and utilities are usable responsively by adding the breakpoint prefixed by an <code>@</code>:</p>
+<ul>
+  <li><code>.d-none</code> hides the element</li>
+  <li><code>.d-inline@sm</code> displays the element inline ≥ 640px</li>
+  <li><code>.d-block@lg</code> results in a block element ≥ 1024px</li>
+</ul>
+
+<p class="notification">To minimize the overhead of the generated CSS file, utility classes aren't available with the <code>xl</code> breakpoint infix class.</p>
+
+<h2>Media queries</h2>
+
+<p>Since this framework is developed to be mobile first, a handful of media queries create sensible breakpoints for your layouts and interfaces. These breakpoints are mostly based on minimum viewport widths and allow us to scale up elements as the viewport changes.</p>
+
+<h3>Min-width</h3>
+
+This mixin is used primarily in this framework's source Sass files for layout, grid system, and components.</p>
+
+{% highlight 'scss' %}
+// No media query necessary for xs breakpoint as it is effectively `@media (min-width: 0) { ... }`
+@include breakpoints.media-above(sm) { ... }
+@include breakpoints.media-above(md) { ... }
+@include breakpoints.media-above(lg) { ... }
+@include breakpoints.media-above(xl) { ... }
+
+// Usage
+
+// Example: Hide starting at `min-width: 0`, and then show at the `sm` breakpoint
+.custom-class {
+  display: none;
+}
+@include breakpoints.media-above(sm) {
+  .custom-class {
+    display: block;
+  }
+}
+{% endhighlight %}
+
+<p>These Sass mixins translate in your compiled CSS using the values declared in the breakpoint variables. For example:</p>
+
+{% highlight 'scss' %}
+// Small devices (landscape phones, 640px and up)
+@media (min-width: 640px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 1024px and up)
+@media (min-width: 1024px) { ... }
+
+// X-Large devices (large desktops, 1280px and up)
+@media (min-width: 1280px) { ... }
+{% endhighlight %}
+
+<h3>Max-width</h3>
+
+<p>You may occasionally use media queries that go in the other direction (the given screen size or smaller):</p>
+
+{% highlight 'scss' %}
+@include breakpoints.media-below(sm) { ... }
+@include breakpoints.media-below(md) { ... }
+@include breakpoints.media-below(lg) { ... }
+@include breakpoints.media-below(xl) { ... }
+// No media query necessary for xxl breakpoint as it has no upper bound on its width
+
+// Example: Style from small breakpoint and down
+@include breakpoints.media-below(sm) {
+  .custom-class {
+    display: block;
+  }
+}
+{% endhighlight %}
+
+<p>These mixins take those declared breakpoints, subtract <code>.02px</code> from them, and use them as our <code>max-width</code> values. For example:</p>
+
+{% highlight 'scss' %}
+// Small devices (portrait phones, less than 640px)
+@media (max-width: 639.98px) { ... }
+
+// Medium devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { ... }
+
+// Large devices (tablets, less than 1024px)
+@media (max-width: 1023.98px) { ... }
+
+// X-Large devices (desktops, less than 1280px)
+@media (max-width: 1279.98px) { ... }
+{% endhighlight %}
+
+<p class="notification"><strong>Why subtract .02px?</strong> Browsers don't currently support range context queries, so we work around the limitations of min- and max- prefixes and viewports with fractional widths (which can occur under certain conditions on high-dpi devices, for instance) by using values with higher precision.</p>

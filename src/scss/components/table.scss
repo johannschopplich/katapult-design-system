@@ -1,0 +1,83 @@
+@use "sass:map";
+@use "../abstracts/breakpoints";
+
+.table {
+  width: 100%;
+  color: var(--color-text);
+  vertical-align: top;
+
+  th,
+  td {
+    padding: var(--space-s);
+    border-bottom: var(--space-px) solid var(--color-gray-light);
+  }
+
+  tbody {
+    vertical-align: inherit;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom-color: var(--color-text);
+  }
+
+  tbody + tbody {
+    border-top: calc(2 * var(--space-px)) solid var(--color-gray-light);
+  }
+}
+
+.table-bordered {
+  border: var(--space-px) solid var(--color-gray-light);
+
+  th,
+  td {
+    border: var(--space-px) solid var(--color-gray-light);
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: calc(2 * var(--space-px));
+    }
+  }
+}
+
+.table-borderless {
+  th,
+  td,
+  thead th,
+  tbody + tbody {
+    border: 0;
+  }
+}
+
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: var(--color-gray-light);
+  }
+}
+
+.table-hover {
+  tbody tr {
+    &:hover {
+      background-color: var(--color-gray-lighter);
+    }
+  }
+}
+
+//
+// Responsive tables
+//
+
+// Screen sizes of where the table will overflow
+@each $breakpoint in map.keys(breakpoints.$default) {
+  $next: breakpoints.next($breakpoint, breakpoints.$default);
+  $infix: breakpoints.infix($next, breakpoints.$default);
+
+  @include breakpoints.media-below($breakpoint) {
+    .table-responsive#{$infix} {
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto;
+    }
+  }
+}

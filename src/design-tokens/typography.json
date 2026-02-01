@@ -1,0 +1,81 @@
+{
+  "props": {
+    "font-family-base": {
+      "value": "\"Georgia, serif\"",
+      "type": "length",
+      "meta": {
+        "infix": false
+      }
+    },
+    "font-family-heading": {
+      "value": "\"\\\"Oswald\\\", Impact, sans-serif\"",
+      "type": "length",
+      "meta": {
+        "infix": false
+      }
+    },
+    "line-height-base": {
+      "value": "calc(1ex / 0.32)",
+      "type": "length",
+      "meta": {
+        "infix": false
+      }
+    },
+    "line-height-heading": {
+      "value": "calc(1ex / 0.52)",
+      "type": "length",
+      "meta": {
+        "infix": false
+      }
+    },
+    "line-length-base": {
+      "value": "65ch",
+      "type": "css-value",
+      "meta": {
+        "infix": false
+      }
+    },
+    "scale-ratio": {
+      "value": "1.2",
+      "type": "length"
+    },
+    "hero": {
+      "value": "clamp(var(--text-xxxl), 5vw, var(--text-xxxl) + 1rem)",
+      "type": "css-value"
+    },
+    "xxxl": {
+      "value": "calc(var(--text-scale-ratio) * var(--text-xxl))",
+      "type": "css-value"
+    },
+    "xxl": {
+      "value": "calc(var(--text-scale-ratio) * var(--text-xl))",
+      "type": "css-value"
+    },
+    "xl": {
+      "value": "calc(var(--text-scale-ratio) * var(--text-l))",
+      "type": "css-value"
+    },
+    "l": {
+      "value": "calc(var(--text-scale-ratio) * var(--text-m))",
+      "type": "css-value"
+    },
+    "m": {
+      "value": "1rem",
+      "type": "length"
+    },
+    "s": {
+      "value": "calc(var(--text-m) / var(--text-scale-ratio))",
+      "type": "css-value"
+    },
+    "xs": {
+      "value": "calc(var(--text-s) / var(--text-scale-ratio))",
+      "type": "css-value"
+    }
+  },
+  "meta": {
+    "infix": "text",
+    "category": "typography",
+    "title": "Typography System",
+    "description": "Sensible typography defaults."
+  }
+}

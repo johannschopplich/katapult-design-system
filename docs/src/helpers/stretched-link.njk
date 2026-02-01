@@ -1,0 +1,21 @@
+---
+tags: helpers
+title: Stretched link
+subheading: Make any element clickable by stretching a nested link
+---
+
+<p>Add the class <code>.stretched-link</code> to a link to make its containing block clickable via a <code>::after</code> pseudo element. In most cases, this means that an element with <code>position: relative;</code> that contains a link with the <code>.stretched-link</code> class applied is clickable.</p>
+
+<p>You can add the <code>.position-relative</code> utility class to the wrapping element in which a <code>.stretched-link</code> class is present.</p>
+
+<p>Multiple links and tap targets are not recommended with stretched links.</p>
+
+{% snippet %}
+<div class="box position-relative" style="width: 16rem;">
+  <h5 class="heading-1">Box with stretched link</h5>
+  <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+  <a href="#" class="position-static btn btn-block stretched-link">Go somewhere</a>
+</div>
+{% endsnippet %}
+
+<p>Since button classes have <code>position: relative;</code> applied by default, we have to override the <code>position</code> property in this example.</p>

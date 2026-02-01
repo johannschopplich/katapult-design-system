@@ -1,0 +1,34 @@
+{
+  "props": {
+    "black": {
+      "value": "hsl(0, 0%, 10%)",
+      "type": "color"
+    },
+    "gray-light": {
+      "value": "hsl(0, 0%, 19%)",
+      "type": "color"
+    },
+    "gray": {
+      "value": "hsl(0, 0%, 29%)",
+      "type": "color"
+    },
+    "gray-dark": {
+      "value": "hsl(0, 0%, 62%)",
+      "type": "color"
+    },
+    "background": {
+      "value": "var(--color-black)",
+      "type": "css-value"
+    },
+    "text": {
+      "value": "#fff",
+      "type": "color"
+    }
+  },
+  "meta": {
+    "infix": "color",
+    "category": "theming-dark",
+    "title": "Theme Colors — Dark Mode",
+    "description": "Theme colors for dark mode."
+  }
+}

@@ -1,0 +1,200 @@
+---
+tags: utilities
+title: Utility API
+subheading: The utility API is a Sass based tool to generate utility classes
+---
+
+<p>Utilities are generated with the utility API which can be used to change or extend KDS's utility classes.</p>
+
+<p>The <code>utilities.$export</code> map contains all utilities and is later merged with your custom <code>utilities.$custom</code> map if present. The utility map contains a keyed list of utility groups which accept the following options:</p>
+<ul>
+  <li><code>property</code>: Name of the property, this can be a string or an array of strings (needed for eg. horizontal paddings or margins).</li>
+  <li><code>responsive</code>: Boolean indicating if responsive classes need to be generated. false by default.</li>
+  <li><code>class</code> (optional): Variable to change the class name if you don't want it to be the same as the property. In case you don't provide the class key and property key is an array of strings, the class name will be the first element of the property array.</li>
+  <li><code>values</code>: This can be a list of values or a map if you don't want the class name to be the same as the value. If null is used as map key, it isn't rendered.</li>
+</ul>
+
+<h2>Adding utilities to the utility API</h2>
+
+<p>All utility variables are added to the <code>utilities.$export</code> variable. Custom utility groups can added like this:</p>
+
+{% highlight 'scss' %}
+$custom: (
+  "opacity": (
+    property: opacity,
+    values: (
+      0: 0,
+      25: .25,
+      50: .5,
+      100: 1,
+    )
+  )
+);
+{% endhighlight %}
+
+<p>Output:</p>
+
+{% highlight 'css' %}
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-25 {
+  opacity: .25;
+}
+.opacity-75 {
+  opacity: .75;
+}
+.opacity-100 {
+  opacity: 1;
+}
+{% endhighlight %}
+
+<h2>Changing the class prefix</h2>
+
+<p>With the <code>class</code> option, the class prefix can be changed:</p>
+
+{% highlight 'scss' %}
+$custom: (
+  "opacity": (
+    property: opacity,
+    class: o,
+    values: (
+      0: 0,
+      25: .25,
+      50: .5,
+      100: 1,
+    )
+  )
+);
+{% endhighlight %}
+
+<p>Output:</p>
+
+{% highlight 'css' %}
+.o-0 {
+  opacity: 0;
+}
+.o-25 {
+  opacity: .25;
+}
+.o-75 {
+  opacity: .75;
+}
+.o-100 {
+  opacity: 1;
+}
+{% endhighlight %}
+
+<h2>Responsive utilities</h2>
+
+<p>With the <code>responsive</code> option, responsive utility classes can be generated:</p>
+
+{% highlight 'scss' %}
+$custom: (
+  "opacity": (
+    property: opacity,
+    responsive: true,
+    values: (
+      0: 0,
+      25: .25,
+      50: .5,
+      100: 1,
+    )
+  )
+);
+{% endhighlight %}
+
+{% highlight 'css' %}
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-25 {
+  opacity: .25;
+}
+.opacity-75 {
+  opacity: .75;
+}
+.opacity-100 {
+  opacity: 1;
+}
+@media (min-width: 640px) {
+  .opacity-sm-0 {
+    opacity: 0;
+  }
+  .opacity-sm-25 {
+    opacity: .25;
+  }
+  .opacity-sm-75 {
+    opacity: .75;
+  }
+  .opacity-sm-100 {
+    opacity: 1;
+  }
+}
+@media (min-width: 768px) {
+  .opacity-md-0 {
+    opacity: 0;
+  }
+  .opacity-md-25 {
+    opacity: .25;
+  }
+  .opacity-md-75 {
+    opacity: .75;
+  }
+  .opacity-md-100 {
+    opacity: 1;
+  }
+}
+@media (min-width: 1024px) {
+  .opacity-lg-0 {
+    opacity: 0;
+  }
+  .opacity-lg-25 {
+    opacity: .25;
+  }
+  .opacity-lg-75 {
+    opacity: .75;
+  }
+  .opacity-lg-100 {
+    opacity: 1;
+  }
+}
+@media (min-width: 1200px) {
+  .opacity-xl-0 {
+    opacity: 0;
+  }
+  .opacity-xl-25 {
+    opacity: .25;
+  }
+  .opacity-xl-75 {
+    opacity: .75;
+  }
+  .opacity-xl-100 {
+    opacity: 1;
+  }
+}
+{% endhighlight %}
+
+<h2>Changing utilities</h2>
+
+<p>Overriding excising utilities is possible by using the same key. For example if you want more responsive overflow utility classes you can do this:</p>
+
+{% highlight 'scss' %}
+$custom: (
+  "overflow": (
+    responsive: true,
+    property: overflow,
+    values: visible hidden scroll auto,
+  ),
+);
+{% endhighlight %}
+
+<h2>Removing utilities</h2>
+
+<p>Utilities can also be removed by changing the group key to <code>null</code>:</p>
+
+{% highlight 'scss' %}
+$custom: (
+  "font-weight": null,
+);
+{% endhighlight %}

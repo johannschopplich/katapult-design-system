@@ -1,0 +1,228 @@
+---
+tags: layout
+title: Columns
+subheading: A simple way to build responsive columns
+---
+
+<style>
+.docs-content .columns {
+  --column-gap: var(--space-s);
+}
+
+.docs-content .column > *:not(.box) {
+  display: block;
+  background-color: var(--docs-color-highlight);
+  padding: var(--space-xs);
+  text-align: center;
+}
+
+.docs-content .column > code {
+  display: block;
+  color: currentColor;
+  font-size: inherit;
+}
+</style>
+
+<p>Building a columns layout with this framework is very simple:</p>
+<ol>
+  <li>Add a <code>.columns</code> container</li>
+  <li>Add as many <code>.column</code> elements as you want</li>
+</ol>
+
+<p class="notification"><strong>Note:</strong> The <code>.column</code> class may be omitted, as every direct child will implicitly be an column element. ✨</p>
+
+<p>Each column will have an equal width, no matter the number of columns.</p>
+
+<p>Columns will have no gap by default but can be chosen. See the <a href="#gap">Gap</a> section for available configurations. For the sake of demo columns on this page, a default gap is set (<code>gap-s</code>).</p>
+
+{% snippet %}
+<div class="columns">
+  <div class="column">
+    <div>First</div>
+  </div>
+  <div class="column">
+    <div>Second</div>
+  </div>
+  <div class="column">
+    <div>Third</div>
+  </div>
+  <div class="column">
+    <div>Fourth</div>
+  </div>
+</div>
+{% endsnippet %}
+
+<h2>Sizes</h2>
+
+<p>If you want to change the size of a single column, you can use one of the following classes:</p>
+<ul>
+  <li><code>.span-full</code></li>
+  <li><code>.span-half</code></li>
+  <li><code>.span-twothirds</code></li>
+  <li><code>.span-onethird</code></li>
+  <li><code>.span-onequarter</code></li>
+  <li><code>.span-onefifth</code></li>
+</ul>
+
+<p>The other columns will fill up the remaining space automatically.</p>
+
+{% snippet %}
+<div class="columns">
+  <div class="column span-twothirds">
+    <code>.span-twothirds</code>
+  </div>
+  <div class="column">
+    <div>Auto</div>
+  </div>
+  <div class="column">
+    <div>Auto</div>
+  </div>
+</div>
+{% endsnippet %}
+
+<h2>12 columns system</h2>
+
+<p>As the grid can be divided into 12 columns, there are size classes for each division:</p>
+<ul>
+  <li><code>.span-1</code></li>
+  <li><code>.span-2</code></li>
+  <li><code>.span-3</code></li>
+  <li><code>.span-4</code></li>
+  <li><code>.span-5</code></li>
+  <li><code>.span-6</code></li>
+  <li><code>.span-7</code></li>
+  <li><code>.span-8</code></li>
+  <li><code>.span-9</code></li>
+  <li><code>.span-10</code></li>
+  <li><code>.span-11</code></li>
+  <li><code>.span-12</code></li>
+</ul>
+
+<p>Each modifier class is named after how many columns you want out of 12. So if you want 7 columns out of 12, use <code>span-7</code>.</p>
+
+<div class="columns mb-s">
+  <div class="column span-3">
+    <code>.span-3</code>
+  </div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+</div>
+
+<div class="columns mb-s">
+  <div class="column span-5">
+    <code>.span-5</code>
+  </div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+</div>
+
+<div class="columns mb-s">
+  <div class="column span-7">
+    <code>.span-7</code>
+  </div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+</div>
+
+<div class="columns mb-s">
+  <div class="column span-9">
+    <code>.span-9</code>
+  </div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+  <div class="column"><div>1</div></div>
+</div>
+
+<h2>Narrow column</h2>
+
+<p>If you want a column to only take the <strong>space it needs</strong>, use the <code>.span-narrow</code> modifier. The other column(s) will fill up the remaining space.</p>
+
+{% snippet %}
+<div class="columns">
+  <div class="column span-narrow">
+    <div class="box" style="width: 200px;">
+      <p class="heading-4">Narrow column</p>
+      <p>This column is 200px wide.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="box">
+      <p class="heading-4">Flexible column</p>
+      <p>This column will take up the remaining space available.</p>
+    </div>
+  </div>
+</div>
+{% endsnippet %}
+
+<p>As for the size modifiers, you can have narrow columns for different breakpoints:</p>
+<ul>
+  <li><code>.span-narrow@sm</code></li>
+  <li><code>.span-narrow@md</code></li>
+  <li><code>.span-narrow@lg</code></li>
+</ul>
+
+<h2>Responsiveness</h2>
+
+<p>By default, columns don't stack e.g. on mobile automatically. They are always activated. If you want columns behave differently – say on mobile – just add a breakpoint modifier on the corresopnding column element.</p>
+
+<p>You can define a column size for each breakpoint size: <strong>sm</strong>, <strong>md</strong>, <code>lg</code>. An example column with the modifiers <code>.span-12</code>, <code>.span-auto@sm</code> and <code>.span-narrow@lg</code> will:</p>
+<ul>
+  <li>span the whole viewport</li>
+  <li>from the small breakpoint (640px) <strong>onwards</strong> span equally wide in relation to the other column's</li>
+  <li>from the large breakpoint (1024px) <strong>onwards</strong> take only the space it needs</li>
+</ul>
+
+{% snippet %}
+<div class="columns">
+  <div class="column span-12 span-auto@sm span-narrow@lg">
+    <code>.span-12<br>
+    .span-auto@sm<br>
+    .span-narrow@lg</code>
+  </div>
+  <div class="column">
+    <div>Remaining Space</div>
+  </div>
+</div>
+{% endsnippet %}
+
+<p>As for the size modifiers, you can have narrow columns for different breakpoints:</p>
+<ul>
+  <li><code>.span-narrow@sm</code></li>
+  <li><code>.span-narrow@md</code></li>
+  <li><code>.span-narrow@lg</code></li>
+</ul>
+
+<h2>Gaps</h2>
+
+<p>Each column has a gap equal to the custom property <code>--column-gap</code>, which has a default value of <code>0</code>.</p>
+
+<p>You can specify a custom column gap by setting the <code>--column-gap</code> custom property on the <code>.columns</code> container.
+
+{% snippet %}
+<div class="columns" style="--column-gap: var(--space-l);">
+  <div class="column">
+    <div>Auto</div>
+  </div>
+  <div class="column">
+    <div>Auto</div>
+  </div>
+  <div class="column">
+    <div>Auto</div>
+  </div>
+</div>
+{% endsnippet %}

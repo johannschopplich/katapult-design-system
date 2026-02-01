@@ -1,0 +1,67 @@
+@use "sass:map";
+@use "../abstracts/breakpoints";
+
+@mixin container {
+  position: relative;
+  width: calc(100% - 2 * var(--space-m));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%container {
+  @include container;
+}
+
+.container {
+  @extend %container;
+
+  @each $breakpoint in map.keys(breakpoints.$default) {
+    $width: map.get(breakpoints.$default, $breakpoint);
+
+    @if $width != 0 {
+      @include breakpoints.media-above($breakpoint) {
+        max-width: $width;
+      }
+    }
+  }
+}
+
+//
+// Fixed responsive containers
+//
+
+@each $breakpoint in map.keys(breakpoints.$default) {
+  $width: map.get(breakpoints.$default, $breakpoint);
+
+  @if $width != 0 {
+    .container-#{$breakpoint} {
+      @extend %container;
+      max-width: $width;
+    }
+  }
+}
+
+//
+// Container for optimal readability
+//
+
+.container-optimal {
+  @extend %container;
+  max-width: var(--line-length-base);
+}
+
+//
+// Fluid container
+//
+
+.container-fluid {
+  @extend %container;
+}
+
+//
+// Modifiers
+//
+
+.container-fullwidth {
+  width: 100%;
+}

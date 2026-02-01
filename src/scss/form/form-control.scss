@@ -1,0 +1,70 @@
+@use "../abstracts/mixins";
+
+.form-control {
+  @extend %control;
+  justify-content: flex-start;
+  width: 100%;
+  border-color: var(--color-gray);
+  padding: var(--space-s);
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 var(--space-px) var(--color-primary);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--color-text);
+    opacity: 0.5;
+  }
+
+  &[aria-invalid="true"],
+  &.control-invalid {
+    border-color: var(--color-red);
+    &:focus {
+      box-shadow: 0 0 0 var(--space-px) var(--color-red);
+    }
+  }
+
+  &.control-valid {
+    border-color: var(--color-green);
+    &:focus {
+      box-shadow: 0 0 0 var(--space-px) var(--color-green);
+    }
+  }
+
+  &:read-only,
+  &:disabled {
+    background-color: var(--color-gray-light);
+    border-color: var(--color-gray-light);
+    color: var(--color-text);
+    opacity: 0.75;
+  }
+
+  //
+  // Modifiers
+  //
+
+  &.control-fullwidth {
+    display: block;
+    width: 100%;
+  }
+
+  &.control-inline {
+    display: inline;
+    width: auto;
+  }
+}
+
+textarea.form-control {
+  display: block;
+
+  &:not([rows]) {
+    max-height: 40em;
+    min-height: 8em;
+  }
+}

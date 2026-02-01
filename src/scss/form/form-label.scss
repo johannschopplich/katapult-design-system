@@ -1,0 +1,9 @@
+@use "../abstracts/mixins";
+
+.form-label {
+  @extend %unselectable;
+  font-size: var(--text-l);
+  font-weight: 300;
+  font-family: var(--font-family-heading);
+  padding-bottom: var(--space-s);
+}

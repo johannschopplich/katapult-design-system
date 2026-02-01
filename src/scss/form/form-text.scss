@@ -1,0 +1,13 @@
+.form-text {
+  font-size: var(--text-s);
+  line-height: var(--line-height-base);
+  margin-top: var(--space-xs);
+
+  &.text-invalid {
+    color: var(--color-red);
+  }
+
+  &.text-valid {
+    color: var(--color-green);
+  }
+}

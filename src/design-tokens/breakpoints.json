@@ -1,0 +1,34 @@
+{
+  "props": {
+    "xs": {
+      "value": "0",
+      "type": "length"
+    },
+    "sm": {
+      "value": "640px",
+      "type": "length"
+    },
+    "md": {
+      "value": "768px",
+      "type": "length"
+    },
+    "lg": {
+      "value": "1024px",
+      "type": "length"
+    },
+    "xl": {
+      "value": "1280px",
+      "type": "length"
+    },
+    "xxl": {
+      "value": "1440px",
+      "type": "length"
+    }
+  },
+  "meta": {
+    "infix": "breakpoint",
+    "category": "breakpoints",
+    "title": "Breakpoints",
+    "description": "The building blocks of mobile first, responsive design."
+  }
+}

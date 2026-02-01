@@ -1,0 +1,83 @@
+@use "sass:map";
+@use "sass:math";
+@use "../abstracts/breakpoints";
+
+$columns: 12 !default;
+$gaps: s, m, l !default;
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(-1 * var(--column-gap, 0));
+  margin-bottom: calc(-1 * var(--column-gap, 0));
+  // Use gap property instead once it's supported in Safari
+  // gap: var(--column-gap, 0);
+
+  > * {
+    display: block;
+    flex: 1 1 0;
+    padding-left: var(--column-gap, 0);
+    padding-bottom: var(--column-gap, 0);
+  }
+
+  //
+  // Cells
+  //
+
+  @each $breakpoint in map.keys(breakpoints.$utilities) {
+    @include breakpoints.media-above($breakpoint) {
+      $infix: breakpoints.infix($breakpoint, breakpoints.$utilities);
+
+      > .span-auto#{$infix} {
+        flex: 1 1 0;
+        width: auto;
+      }
+
+      > .span-narrow#{$infix} {
+        flex: 0 0 auto;
+        width: auto;
+      }
+
+      > .span-full#{$infix} {
+        flex: none;
+        width: 100%;
+      }
+
+      @for $i from 1 through $columns {
+        > .span-#{$i}#{$infix} {
+          flex: none;
+          width: math.percentage(
+            math.div($i, 12)
+          );
+        }
+      }
+    }
+  }
+
+  //
+  // Gaps
+  //
+
+  @each $gap in $gaps {
+    &.gap-#{$gap} {
+      --column-gap: var(--space-#{$gap});
+    }
+  }
+
+  //
+  // Modifiers
+  //
+
+  &.columns-h-center {
+    justify-content: center;
+  }
+
+  &.columns-v-center {
+    align-items: center;
+  }
+
+  &.columns-center {
+    justify-content: center;
+    align-items: center;
+  }
+}

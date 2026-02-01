@@ -1,0 +1,14 @@
+{
+  "props": {
+    "red": {
+      "value": "hsl(358, 70%, 44%)",
+      "type": "color"
+    }
+  },
+  "meta": {
+    "infix": "color-dark",
+    "category": "colors-dark",
+    "title": "Dark Colors",
+    "description": "Default dark KATAPULT colors brought from print to the web."
+  }
+}

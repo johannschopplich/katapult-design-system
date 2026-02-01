@@ -1,0 +1,18 @@
+---
+layout: base
+---
+
+<main>
+  <div class="main-container container-xl">
+    {% include 'navigation.njk' %}
+
+    <section>
+      <h1 class="heading text-hero">{{ heading or title }}</h1>
+      <h2 class="subheading-2 text-gray-dark mb-l">{{ subheading }}</h2>
+
+      <div class="docs-content content">
+        {{ content | safe }}
+      </div>
+    </section>
+  </div>
+</main>

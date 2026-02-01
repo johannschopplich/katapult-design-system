@@ -1,0 +1,74 @@
+---
+tags: components
+title: Aspect ratio
+subheading: A container with an intrinsic ratio for responsive embeds such as images
+---
+
+<p>Use the <code>.aspect-ratio</code> class to for a container with an intrinsic ratio that scales on any device. The embedded child element is based on the width and height of its parent. Intended purposes include:</p>
+<ul>
+  <li>Embedding a responsive image, iframe, etc.</li>
+  <li>Creating a fixed ratio content box, e.g. for social media posts</p>
+</ul>
+
+<p>Because images can take a few seconds to load (or not at all), use the component to specify a precisely sized container so that your layout isn't broken because of image loading or image errors.</p>
+
+{% snippet %}
+<div class="aspect-ratio ratio-16by9">
+  <img src="https://picsum.photos/640/360">
+</div>
+{% endsnippet %}
+
+<h2>Custom ratios</h2>
+
+<p>Define any aspect ratio you desire via an inlined <code>--aspect-ratio</code> variable. No additional class needed!</p>
+
+{% snippet %}
+<div style="--aspect-ratio: 4/5">
+  <img src="https://picsum.photos/480/600">
+</div>
+{% endsnippet %}
+
+<h2>Pre-defined ratios</h2>
+
+<p>You can use one of the 7 ratio modifiers, which include <a href="https://en.wikipedia.org/wiki/Aspect_ratio_%28image%29#Still_photography">common aspect ratios in still photography</a>. Append it on a <code>.aspect-ratio</code> class.</p>
+
+<style>
+#images tr td:nth-child(2) {
+  width: 320px;
+}
+</style>
+
+<table id="images" class="table table-bordered">
+  <tbody>
+    <tr>
+      <td><code>.ratio-1by1</code></td>
+      <td><div class="aspect-ratio ratio-1by1"><img src="https://picsum.photos/480/480"></div></td>
+      <td>1 by 1</td>
+    </tr>
+    <tr>
+      <td><code>.ratio-5by4</code></td>
+      <td><div class="aspect-ratio ratio-5by4"><img src="https://picsum.photos/600/480"></div></td>
+      <td>5 by 4</td>
+    </tr>
+    <tr>
+      <td><code>.ratio-4by3</code></td>
+      <td><div class="aspect-ratio ratio-4by3"><img src="https://picsum.photos/640/480"></div></td>
+      <td>4 by 3</td>
+    </tr>
+    <tr>
+      <td><code>.ratio-3by2</code></td>
+      <td><div class="aspect-ratio ratio-3by2"><img src="https://picsum.photos/480/320"></div></td>
+      <td>3 by 2</td>
+    </tr>
+    <tr>
+      <td><code>.ratio-16by9</code></td>
+      <td><div class="aspect-ratio ratio-16by9"><img src="https://picsum.photos/640/360"></div></td>
+      <td>16 by 9</td>
+    </tr>
+    <tr>
+      <td><code>.ratio-2by1</code></td>
+      <td><div class="aspect-ratio ratio-2by1"><img src="https://picsum.photos/640/320"></div></td>
+      <td>2 by 1</td>
+    </tr>
+  </tbody>
+</table>

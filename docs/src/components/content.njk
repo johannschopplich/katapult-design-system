@@ -1,0 +1,66 @@
+---
+tags: components
+title: Content
+subheading: A single class to handle WYSIWYG generated content, where only HTML tags are available
+---
+
+<p>Sometimes, especially for parsed documents or when you just want to directly use HTML tags, use content as container. It can handle almost any HTML tag:
+
+<p>Use the <code>.content</code> class to for a container with an intrinsic ratio that scales on any device. The embedded child element is based on the width and height of its parent. Intended purposes include:</p>
+<ul>
+  <li><code>{{ '<p>' | escape }}</code> paragraphs</li>
+  <li><code>{{ '<ul>' | escape }}</code>, <code>{{ '<ol>' | escape }}</code>, and <code>{{ '<dl>' | escape }}</code> lists</li>
+  <li><code>{{ '<h1>' | escape }}</code> to <code>{{ '<h6>' | escape }}</code> headings</li>
+  <li><code>{{ '<blockquote>' | escape }}</code> quotes</li>
+  <li><code>{{ '<figure>' | escape }}</code> elements</li>
+</ul>
+
+<p>This content class can be used in any context where you just want to (or can only) write some text. For example, it is used for the paragraph you're currently reading.</p>
+
+{% snippet %}
+<div class="content">
+  <h1>A slice of heaven</h1>
+  <blockquote>Lorem Ipsum is the single greatest threat.</blockquote>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+  <h2>Second level</h2>
+  <p>Curabitur accumsan turpis pharetra <strong>augue tincidunt</strong> blandit. Quisque condimentum maximus mi, sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
+  <ul>
+    <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
+    <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
+    <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
+    <li>Ut non enim metus.</li>
+  </ul>
+</div>
+{% endsnippet %}
+
+<h2>Custom ratios</h2>
+
+{% snippet %}
+<div class="content">
+  <ol type="1">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ol>
+  <ol type="A">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ol>
+  <ol type="a">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ol>
+  <ol type="I">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ol>
+  <ol type="i">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ol>
+</div>
+{% endsnippet %}

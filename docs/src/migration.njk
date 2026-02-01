@@ -1,0 +1,22 @@
+---
+title: Migration guide
+subheading: How to migrate from v1.7 to v2.0
+---
+
+<p>This framework matured a lot from its humble beginnings. To preserve a consistent namespacing landscape, some classes have been renamed.</p>
+
+<p>In addition, the setup and generation of design tokens has been completely oberhauled. They are now <a href="https://gitlab.com/katapult-magazin/katapult-design-system/-/tree/develop/src/design-tokens">categorized and provided with meta information</a>. This increases versatility and makes exporting to different file formats easier.</p>
+
+<h2>⚠ Breaking changes</h2>
+
+<ul>
+  <li>All color CSS variables are now prefixed by <code>color</code>, resulting in e.g. <code>--color-red</code></li>
+  <li>Added <code>.heading</code> classes and removed <code>{{ '<h1>' | escape }}</code> – <code>{{ '<h6>' | escape }}</code> default styling (except inside <code>.content</code>)</li>
+  <li>Renamed <code>.skewed-header</code> to <code>.box-header</code> and consequently its web component derivate to <code>{{ '<k-box-header>' | escape }}</code></li>
+  <li>Renamed <code>.skewed-bg</code> to <code>.box-skewed</code></li>
+  <li>Removed <code>.ratio.is-square</code> modifier</li>
+  <li><strong>Helpers</strong>: Renamed <code>.centered-content</code> to <code>.content-center</code></li>
+  <li><strong>Helpers</strong>: Renamed <code>.spans-fullwidth</code> to <code>.span-fullwidth</code></li>
+  <li><strong>Utilities</strong>: Add responsive font-size utilities</li>
+  <li><strong>Utilities</strong>: Removed flex-wrap utilities</li>
+</ul>

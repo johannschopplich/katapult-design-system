@@ -1,0 +1,6 @@
+@use "../abstracts/mixins";
+
+.highlight,
+[style*="--highlight-color"] {
+  @extend %highlight;
+}

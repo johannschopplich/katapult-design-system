@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:string";
+@use "tokens";
+
+// Linearly scale CSS properties with units based on the viewport
+// @see https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+@mixin fluid-scale($min, $max, $property: font-size) {
+  $minvw: map.get(tokens.$fluid-scaling, "fluid-min-width");
+  $maxvw: map.get(tokens.$fluid-scaling, "fluid-max-width");
+
+  $slope: math.div($max - $min, $maxvw - $minvw);
+  $yAxisIntersection: -$minvw * $slope + $min;
+  $preferredValue: $yAxisIntersection + " + " + $slope * 100 + "vw";
+
+  & {
+    #{$property}: #{$min};
+    #{$property}: clamp(#{$min}, #{$preferredValue}, #{$max});
+  }
+}
+
+// Merge multiple maps into one collection
+@function collect($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map.merge($collection, $map);
+  }
+
+  @return $collection;
+}
+
+// Replace `$search` with `$replace` in `$string`
+@function replace($string, $search, $replace: "") {
+  $index: string.index($string, $search);
+
+  @if $index {
+    @return string.slice($string, 1, $index - 1) + $replace + replace(string.slice($string, $index + string.length($search)), $search, $replace);
+  }
+
+  @return $string;
+}

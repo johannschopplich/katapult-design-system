@@ -1,0 +1,52 @@
+{
+  "private": true,
+  "name": "katapult-design-system",
+  "version": "3.5.4",
+  "packageManager": "pnpm@10.28.1",
+  "description": "The central hub for KATAPULT design tokens and a modern web design framework for KATAPULT projects",
+  "type": "module",
+  "scripts": {
+    "build:tokens": "node scripts/tokens/generator.js && cp dist/tokens/tokens.scss src/scss/abstracts/_tokens.scss",
+    "build:sass": "sass --style=compressed src/scss/kds.scss dist/kds.css",
+    "build:js": "esbuild --bundle --minify --outfile=dist/kds.js src/js/index.js && esbuild --minify --format=esm --outfile=dist/kds-head.js src/js/head.js",
+    "dev": "npm run build:sass -- --watch && esbuild --bundle --watch --outfile=dist/kds.js src/js/index.js",
+    "build": "npm run build:tokens && npm run build:sass -- --no-source-map && npm run build:js && node scripts/processBuildArtifacts.js",
+    "publish": "node scripts/publish.js",
+    "lint": "eslint \"src/js/**/*.js\"",
+    "lint:fix": "npm run lint -- --fix",
+    "cleanup": "prettier --write \"src/js/**/*.js\"",
+    "test": "npm run lint && echo \"No test specified\"",
+    "release": "standard-version",
+    "release:major": "standard-version --release-as major",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^7.2.0",
+    "chalk": "^5.6.2",
+    "esbuild": "^0.27.2",
+    "eslint": "^8.3.0",
+    "fast-glob": "^3.3.3",
+    "prettier": "2.5.0",
+    "sass": "^1.97.3",
+    "throttle-debounce": "^5.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/katapult-magazin/katapult-design-system.git"
+  },
+  "keywords": [
+    "katapult",
+    "framework",
+    "responsive",
+    "design-system",
+    "tokens",
+    "css"
+  ],
+  "author": "Johann Schopplich <schopplich@katapult-magazin.de> (https://www.katapult-magazin.de)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/katapult-magazin/katapult-design-system/issues"
+  },
+  "homepage": "https://katapult.design"
+}

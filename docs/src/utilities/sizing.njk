@@ -1,0 +1,29 @@
+---
+tags: utilities
+title: Sizing
+subheading: Easily make an element as wide or as tall with the provided width and height utilities
+---
+
+<h2>Relative to the parent</h2>
+
+<p>Width and height utilities are generated from the utility API. Includes support for <code>25%</code>, <code>50%</code>, <code>75%</code>, <code>100%</code>, and <code>auto</code> by default. Modify those values as you need to generate different utilities here.</p>
+
+{% snippet %}
+<div class="stack-v">
+  <div class="w-25 docs-box">25%</div>
+  <div class="w-50 docs-box">50%</div>
+  <div class="w-75 docs-box">75%</div>
+  <div class="w-100 docs-box">100%</div>
+  <div class="w-auto docs-box">auto</div>
+</div>
+{% endsnippet %}
+
+<h2>Relative to the viewport</h2>
+
+<p>You can also use utilities to set the width and height relative to the viewport.</p>
+
+{% highlight %}
+<div class="vw-100">Width: 100vw</div>
+<div class="vh-100">Height: 100vh</div>
+<div class="min-vh-100">Min-height: 100vh</div>
+{% endhighlight %}

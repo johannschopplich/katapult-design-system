@@ -1,0 +1,105 @@
+@use "sass:map";
+@use "../abstracts/functions";
+@use "../abstracts/tokens";
+
+$fluid-min: map.get(tokens.$fluid-scaling, "fluid-min-size");
+$fluid-max: map.get(tokens.$fluid-scaling, "fluid-max-size");
+
+//
+// Document
+//
+
+html {
+  @include functions.fluid-scale($fluid-min, $fluid-max);
+  min-width: 320px;
+  background-color: var(--color-background, white);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+::selection {
+  background: var(--color-matt-yellow);
+  color: var(--color-black);
+}
+
+//
+// Sections
+//
+
+body {
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+}
+
+[id] {
+  scroll-margin-top: 2ex;
+}
+
+//
+// Content grouping
+//
+
+hr {
+  background-color: var(--color-gray);
+  margin: var(--space-m) auto;
+  opacity: 1;
+
+  &:not([size]) {
+    height: var(--space-px);
+  }
+}
+
+//
+// Links
+//
+
+a {
+  cursor: pointer;
+  color: var(--color-link);
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  text-decoration-color: currentcolor;
+  text-decoration-thickness: auto;
+
+  &:hover {
+    text-decoration-line: underline;
+  }
+}
+
+//
+// Text-level semantics
+//
+
+mark {
+  background-color: var(--color-matt-yellow);
+  color: inherit;
+}
+
+code {
+  color: var(--color-matt-red);
+  font-size: 0.875em;
+}
+
+pre {
+  font-size: 0.875em;
+  padding: var(--space-m) 1.25rem;
+  overflow-x: auto;
+  white-space: pre;
+  word-wrap: normal;
+
+  code {
+    color: currentColor;
+    // font-size: 1em;
+  }
+}
+
+//
+// Forms
+//
+
+// Disable non-standard gestures such as double-tap to zoom
+button,
+.standard-gestures-only {
+  touch-action: manipulation;
+}

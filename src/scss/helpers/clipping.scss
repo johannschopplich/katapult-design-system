@@ -1,0 +1,13 @@
+@use "../abstracts/mixins";
+
+.clip-wonky {
+  @extend %clip-wonky;
+}
+
+.clip-goofy {
+  @extend %clip-goofy;
+}
+
+.clip-skewed {
+  @extend %clip-skewed;
+}

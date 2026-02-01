@@ -1,0 +1,20 @@
+.accordion {
+  border: var(--space-px) solid;
+  padding: var(--space-xs) var(--space-xs) 0;
+
+  summary {
+    font: var(--text-l)/var(--line-height-heading) var(--font-family-heading);
+    margin: calc(-1 * var(--space-xs)) calc(-1 * var(--space-xs)) 0;
+    padding: var(--space-s);
+    cursor: pointer;
+  }
+
+  &[open] {
+    padding-bottom: var(--space-m);
+
+    summary {
+      border-bottom: var(--space-px) dashed;
+      margin-bottom: var(--space-m);
+    }
+  }
+}

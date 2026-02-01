@@ -1,0 +1,49 @@
+---
+tags: utilities
+title: Colors
+subheading: Convey meaning through color with a handful of color utility classes
+---
+
+<h2>Color</h2>
+
+<p>Colorize text with color utilities.</p>
+
+{% snippet %}
+<p class="text-primary">.text-primary</p>
+<p class="text-red">.text-red</p>
+<p class="text-pink">.text-pink</p>
+<p class="text-purple">.text-purple</p>
+<p class="text-blue">.text-blue</p>
+<p class="text-green">.text-green</p>
+<p class="text-yellow">.text-yellow</p>
+<p class="text-orange">.text-orange</p>
+<p class="text-white bg-black">.text-white</p>
+<p class="text-gray">.text-gray</p>
+<p class="text-gray-dark">.text-gray-dark</p>
+<p class="text-black">.text-black</p>
+{% endsnippet %}
+
+<h2>Background color</h2>
+
+<p>Similar to the contextual text color classes, easily set the background of an element to any contextual class. Background utilities don't set any color, so you may use <code>.text-*</code> utilities in conjunciton.</p>
+
+{% snippet %}
+<p class="p-m p-m bg-primary text-white">.bg-primary</p>
+<p class="p-m p-m bg-red text-white">.bg-red</p>
+<p class="p-m p-m bg-pink text-white">.bg-pink</p>
+<p class="p-m p-m bg-purple text-white">.bg-purple</p>
+<p class="p-m p-m bg-blue text-white">.bg-blue</p>
+<p class="p-m p-m bg-green">.bg-green</p>
+<p class="p-m p-m bg-yellow">.bg-yellow</p>
+<p class="p-m p-m bg-orange">.bg-orange</p>
+<p class="p-m p-m bg-white">.bg-white</p>
+<p class="p-m p-m bg-gray">.bg-gray</p>
+<p class="p-m p-m bg-gray-dark text-white">.bg-gray-dark</p>
+<p class="p-m p-m bg-black text-white">.bg-black</p>
+{% endsnippet %}
+
+<h2>Conveying meaning to assistive technologies</h2>
+
+<blockquote>
+Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies – such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (e.g. the visible text), or is included through alternative means, such as additional text hidden with the <code>.sr-only</code> class.
+</blockquote>

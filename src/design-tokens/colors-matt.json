@@ -1,0 +1,34 @@
+{
+  "props": {
+    "red": {
+      "value": "hsl(352, 67%, 57%)",
+      "type": "color"
+    },
+    "pink": {
+      "value": "hsl(330, 66%, 77%)",
+      "type": "color"
+    },
+    "blue": {
+      "value": "hsl(215, 48%, 57%)",
+      "type": "color"
+    },
+    "green": {
+      "value": "hsl(100, 40%, 57%)",
+      "type": "color"
+    },
+    "yellow": {
+      "value": "hsl(48, 100%, 73%)",
+      "type": "color"
+    },
+    "orange": {
+      "value": "hsl(28, 83%, 63%)",
+      "type": "color"
+    }
+  },
+  "meta": {
+    "infix": "color-matt",
+    "category": "colors-matt",
+    "title": "Matt Colors",
+    "description": "Default matt KATAPULT colors brought from print to the web."
+  }
+}

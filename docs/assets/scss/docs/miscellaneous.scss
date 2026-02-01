@@ -1,0 +1,28 @@
+.docs-box {
+  background-color: var(--docs-color-highlight);
+  padding: var(--space-xs);
+
+  > .docs-box {
+    border: var(--space-px) solid var(--docs-color-highlight);
+  }
+}
+
+code[style*="--color-preview"] {
+  position: relative;
+}
+
+code[style*="--color-preview"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1.75em;
+  height: 1.25em;
+  width: 1.25em;
+  background-color: var(--color-preview);
+}
+
+.notification code {
+  background-color: white;
+  border-radius: var(--space-px);
+  padding: 0 0.25em;
+}

@@ -1,0 +1,22 @@
+---
+tags: layout
+title: Stack
+subheading: Inject margin between elements via their common parent
+---
+
+<p>Flow elements require space to physically and conceptually separate them from the elements that come before and after them. We typically add a bottom margin to each element. If a paragraph is proceeded by another paragraph, the effect is desirable. But a <code>:last-child</code> paragraph produces double the intended space. You could check for the last item programmatically and don't touch its margin, but that extra step can be avoided.</p>
+
+<p>The <code>.stack</code> class solves this issue. Set once on the parent element it adds a bottom margin to each child, except the last one.</p>
+
+<p>How far the elements should be spaced to each other can be customized through the <code>--space-gap</code> CSS variable.</p>
+
+{% snippet %}
+<div class="stack docs-box">
+  <div class="docs-box">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Cras mattis pannenkoek purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.</div>
+  <div class="docs-box">Item</div>
+  <div class="docs-box">Item</div>
+  <div class="docs-box">Item</div>
+  <div class="docs-box">Item</div>
+  <div class="docs-box">Item</div>
+</div>
+{% endsnippet %}

@@ -1,0 +1,82 @@
+---
+title: Home
+heading: Translating the familiar and unique KATAPULT style to the web
+subheading: The central hub for KATAPULT design tokens and a modern web design framework for KATAPULT projects
+---
+
+<p>KATAPULT Design System contains the fundamental <strong>design tokens</strong> in use to build KATAPULT graphics, layouts and interfaces. It translates the <strong>graphical style</strong> of KATAPULT print products to the web as well.</p>
+
+<p>In its core, it is a modern web design framework to develop responsive, accessible websites and web applications for KATAPULT projects. The framework is based on CSS custom properties for easy customization and extension and includes extensive prebuilt components. The source is a collection of Sass modules, but in most cases it is sufficientto use the minified CSS file, as it can be modified using the custom properties.</p>
+
+<h2>Generic concepts</h2>
+
+<p>Websites and web applications part of the KATAPULT universe should aspire to be:</p>
+
+<ul>
+  <li><strong>Accessible</strong> to folks with varying cognitive and physical abilities and disabilities</li>
+  <li><strong>Performant</strong> on average devices and in constrained or unreliable network conditions</li>
+  <li><strong>Responsive</strong> in adapting the user interface contextually to any screen</li>
+  <li><strong>Secure</strong> and reliable for storing, manipulating, and transferring information</li>
+  <li><strong>Ethical</strong> in how users' preferences and data are handled</li>
+  <li><strong>Inclusive</strong> to diverse audiences</li>
+</ul>
+
+<h2>Social media post example</h2>
+
+{% snippet %}
+<div class="aspect-ratio-fixed ratio-1by1" style="background: var(--color-gray-light);">
+  <div class="post-wrapper">
+    <k-box-header angle="2deg">
+      <h3 class="heading-3">KATAPULT Post Example</h3>
+    </k-box-header>
+
+    <div class="post-container p-m">
+      <div class="post-content content hyphenate">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+
+      <img class="post-footer-logo" src="{{ '/assets/img/post-footer-logo.svg' | url }}">
+      <div class="post-footer-copyright">
+        <img src="{{ '/assets/img/post-footer-copyright.svg' | url }}">
+        <span class="text-s text-bold ml-s">2020 KATAPULT</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.post-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.post-content {
+  grid-column: 1 / -1;
+  align-self: stretch;
+}
+
+.post-footer-copyright {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.post-footer-logo,
+.post-footer-copyright img {
+  height: 1rem;
+}
+</style>
+{% endsnippet %}
+
+<h2>Getting started</h2>
+
+<p>Please visit the <a href="{{ '/start/' | url }}">getting started page</a> to for instructions on how to include the framework into your project!</p>

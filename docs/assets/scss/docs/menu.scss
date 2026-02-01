@@ -1,0 +1,39 @@
+.docs-menu {
+  ul {
+    list-style: none;
+  }
+
+  @media (max-width: 767.98px) {
+    &:not(.menu-active) {
+      display: none;
+    }
+
+    .menu-categories {
+      column-count: 2;
+
+      li {
+        break-inside: avoid;
+      }
+    }
+  }
+
+  .menu-categories li {
+    font-size: var(--text-l);
+    font-weight: 700;
+  }
+
+  .menu-subcategories {
+    border-left: var(--space-px) solid var(--color-link);
+    padding-left: var(--space-s);
+
+    li {
+      font-size: var(--text-m);
+      font-weight: 400;
+      margin-top: var(--space-xxs);
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+}

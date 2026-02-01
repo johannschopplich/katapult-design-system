@@ -1,0 +1,14 @@
+.docs-footer {
+  position: relative;
+  border-top: var(--space-px) solid var(--color-gray-light);
+
+  svg {
+    position: absolute;
+    top: -1.75rem;
+    left: 50%;
+    height: 3rem;
+    background-color: var(--color-background);
+    padding: 0 var(--space-s);
+    transform: translateX(-50%);
+  }
+}

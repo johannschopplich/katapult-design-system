@@ -1,0 +1,15 @@
+---
+title: Layout
+subheading: Design the structure of your webpage with these CSS classes
+---
+
+<nav class="stack" style="--stack-gap: 1.5rem;">
+  {%- for item in collections.layout -%}
+    <div class="box position-relative">
+      <a class="stretched-link" href="{{ item.url | url }}">
+        <h2 class="text-xxl">{{ item.data.title }}</h2>
+      </a>
+      <p>{{ item.data.subheading }}</p>
+    </div>
+  {%- endfor -%}
+</nav>

@@ -1,0 +1,42 @@
+{
+  "props": {
+    "red": {
+      "value": "#e4160c",
+      "type": "color"
+    },
+    "pink": {
+      "value": "#b04c82",
+      "type": "color"
+    },
+    "purple": {
+      "value": "#682082",
+      "type": "color"
+    },
+    "blue": {
+      "value": "#1588c9",
+      "type": "color"
+    },
+    "turquoise": {
+      "value": "#01a097",
+      "type": "color"
+    },
+    "green": {
+      "value": "#43ab31",
+      "type": "color"
+    },
+    "yellow": {
+      "value": "#f8d300",
+      "type": "color"
+    },
+    "orange": {
+      "value": "#ec8e00",
+      "type": "color"
+    }
+  },
+  "meta": {
+    "infix": "color-a11y",
+    "category": "colors-a11y",
+    "title": "A11y Colors",
+    "description": "Default accessible colors. Not included in the CSS framework by default, but importable when needed."
+  }
+}
