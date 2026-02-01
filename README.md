@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="https://katapult.design"><strong>katapult.design</strong></a>
+  <a href="https://katapult-design-system.byjohann.dev"><strong>katapult.design</strong></a>
   <br>
 </p>
 
@@ -146,7 +146,7 @@ Help us keep KATAPULT Design System open and inclusive. Please read and follow o
 **Love KATAPULT Design System? Give our repo a star :star: :arrow_up:.**
 
 [contributing]: CONTRIBUTING.md
-[quickstart]: https://katapult.design/start
+[quickstart]: https://katapult-design-system.byjohann.dev/start
 [changelog]: CHANGELOG.md
 [node.js]: https://nodejs.org
 [npm]: https://www.npmjs.com/get-npm

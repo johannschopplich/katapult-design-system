@@ -12,7 +12,7 @@ export default {
   title: 'KATAPULT Design System',
   description: 'The central hub for KATAPULT design tokens and a modern web design framework for KATAPULT projects',
   image: '/assets/img/apple-touch-icon.png',
-  url: 'https://katapult.design',
+  url: 'https://katapult-design-system.byjohann.dev',
   author: {
     email: 'schopplich@katapult-magazin.de',
     handle: '@katapultmagazin',

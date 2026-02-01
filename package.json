@@ -7,7 +7,7 @@
   "description": "The central hub for KATAPULT design tokens and a modern web design framework for KATAPULT projects",
   "author": "Johann Schopplich <schopplich@katapult-magazin.de> (https://www.katapult-magazin.de)",
   "license": "MIT",
-  "homepage": "https://katapult.design",
+  "homepage": "https://katapult-design-system.byjohann.dev",
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/katapult-magazin/katapult-design-system.git"
