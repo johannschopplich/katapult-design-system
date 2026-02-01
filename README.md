@@ -139,10 +139,6 @@ Read through our [contributing guidelines][contributing] to learn about our subm
 
 Want to file a bug, contribute some code, or improve documentation? Excellent! Read up on our guidelines for [contributing][contributing] and then check out one of our issues on [GitLab](https://gitlab.com/katapult-magazin/katapult-design-system/-/issues).
 
-### Code of conduct
-
-Help us keep KATAPULT Design System open and inclusive. Please read and follow our [Code of Conduct][codeofconduct].
-
 **Love KATAPULT Design System? Give our repo a star :star: :arrow_up:.**
 
 [contributing]: CONTRIBUTING.md
