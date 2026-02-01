@@ -1,35 +1,38 @@
-const fs = require("fs");
-const config = require("../config.js");
+import fs from 'node:fs'
+import config from '../config.js'
 
-module.exports = {
-  lang: config.defaultLang || "en",
+export default {
+  lang: config.defaultLang || 'en',
 
   eleventyComputed: {
     layout: ({ page, layout }) => {
-      if (layout || layout === null) return layout;
+      if (layout || layout === null)
+        return layout
 
       // Check if part of a collection folder (root folder without a `_` prefix)
-      const folderRegex = new RegExp(`^./${config.dir.src}/([^_][^/]+)/.*$`);
-      const matches = page.inputPath.match(folderRegex);
+      const folderRegex = new RegExp(`^./${config.dir.src}/([^_][^/]+)/.*$`)
+      const matches = page.inputPath.match(folderRegex)
 
       if (matches) {
-        const folder = matches[1];
+        const folder = matches[1]
         if (fs.existsSync(`${config.dir.src}/_layouts/${folder}.njk`)) {
-          return folder;
+          return folder
         }
       }
 
-      return "default";
+      return 'default'
     },
 
     permalink: ({ page, permalink }) => {
-      if (permalink) return permalink;
+      if (permalink)
+        return permalink
 
       if (config.permalinkFolders) {
-        return page.filePathStem.replace(/\/index$/, "") + "/index.html";
-      } else {
-        return `${page.filePathStem}.html`;
+        return `${page.filePathStem.replace(/\/index$/, '')}/index.html`
+      }
+      else {
+        return `${page.filePathStem}.html`
       }
     },
   },
-};
+}

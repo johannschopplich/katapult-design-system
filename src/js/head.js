@@ -4,9 +4,7 @@
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
    */
-  const prefersDarkTheme = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
+  const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
 
   /**
    * Detect if the user has requested that the web content is presented
@@ -17,12 +15,8 @@
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-ms-high-contrast
    */
-  const prefersHighContrastTheme =
-    window.matchMedia("(prefers-contrast: high)").matches ||
-    window.matchMedia("(-ms-high-contrast: active)").matches;
+  const prefersHighContrastTheme = window.matchMedia('(prefers-contrast: high)').matches || window.matchMedia('(-ms-high-contrast: active)').matches
 
   // Set the theme based on local storage or the preferred color theme
-  document.documentElement.dataset.theme =
-    localStorage.getItem("color-schema") ||
-    (prefersHighContrastTheme ? "a11y" : prefersDarkTheme ? "dark" : "light");
-})();
+  document.documentElement.dataset.theme = localStorage.getItem('color-schema') || (prefersHighContrastTheme ? 'a11y' : prefersDarkTheme ? 'dark' : 'light')
+})()

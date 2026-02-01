@@ -1,31 +1,29 @@
-const fs = require("fs");
-const fg = require("fast-glob");
-const { version } = require(`${process.cwd()}/../package.json`);
+import fs from 'node:fs'
+import fg from 'fast-glob'
+import pkg from '../../../package.json' with { type: 'json' }
 
-const tokens = {};
-const tokenFiles = fg.sync(`${process.cwd()}/../src/design-tokens/*.json`);
-for (const path of tokenFiles) {
-  const data = JSON.parse(fs.readFileSync(path));
-  Object.assign(tokens, { [data.meta.category]: data });
-}
+const tokens = Object.fromEntries(
+  fg.sync(`${import.meta.dirname}/../../../src/design-tokens/*.json`)
+    .map(path => JSON.parse(fs.readFileSync(path)))
+    .map(data => [data.meta.category, data]),
+)
 
-module.exports = {
-  title: "KATAPULT Design System",
-  description:
-    "The central hub for KATAPULT design tokens and a modern web design framework for KATAPULT projects",
-  image: "/assets/img/apple-touch-icon.png",
-  url: "https://katapult.design",
+export default {
+  title: 'KATAPULT Design System',
+  description: 'The central hub for KATAPULT design tokens and a modern web design framework for KATAPULT projects',
+  image: '/assets/img/apple-touch-icon.png',
+  url: 'https://katapult.design',
   author: {
-    email: "schopplich@katapult-magazin.de",
-    handle: "@katapultmagazin",
-    name: "Johann Schopplich",
+    email: 'schopplich@katapult-magazin.de',
+    handle: '@katapultmagazin',
+    name: 'Johann Schopplich',
   },
   tokens,
-  version,
-  date: new Date().toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  version: pkg.version,
+  date: new Date().toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   }),
-};
+}

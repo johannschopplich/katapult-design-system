@@ -1,6 +1,6 @@
-const { highlight } = require("highlight.js");
+import hljs from 'highlight.js'
 
-module.exports = function (content, language = "html") {
-  const highlighted = highlight(content.trimLeft(), { language }).value;
-  return `<pre class="hljs language-${language}"><code>${highlighted}</code></pre>`;
-};
+export default function (content, language = 'html') {
+  const highlighted = hljs.highlight(content.trimStart(), { language }).value
+  return `<pre class="hljs language-${language}"><code>${highlighted}</code></pre>`
+}

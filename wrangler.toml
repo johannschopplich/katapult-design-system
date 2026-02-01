@@ -1,9 +1,6 @@
 name = "katapult-design-system"
 compatibility_date = "2026-01-01"
-
-routes = [
-  { pattern = "katapult-design-system.byjohann.dev", custom_domain = true }
-]
+routes = [ { pattern = "katapult-design-system.byjohann.dev", custom_domain = true } ]
 
 [assets]
 directory = "./docs/_site/"

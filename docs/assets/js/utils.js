@@ -1,11 +1,16 @@
-export const qs = (el, parent = document) => parent.querySelector(el);
-export const qsa = (el, parent = document) =>
-  Array.from(parent.querySelectorAll(el));
+export function qs(el, parent = document) {
+  return parent.querySelector(el)
+}
 
-export const hydrate = (el, fn) => {
-  if (typeof fn !== "function") return;
+export function qsa(el, parent = document) {
+  return Array.from(parent.querySelectorAll(el))
+}
+
+export function hydrate(el, fn) {
+  if (typeof fn !== 'function')
+    return
 
   for (const match of document.querySelectorAll(el)) {
-    fn(match);
+    fn(match)
   }
-};
+}

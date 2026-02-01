@@ -1,50 +1,49 @@
-/* eslint-env node */
-import fs from "fs";
-import crypto from "crypto";
-import replace from "@rollup/plugin-replace";
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import { terser } from "rollup-plugin-terser";
-import scss from "rollup-plugin-scss";
-import sass from "sass";
+import crypto from 'node:crypto'
+import fs from 'node:fs'
+import process from 'node:process'
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
+import terser from '@rollup/plugin-terser'
+import scss from 'rollup-plugin-scss'
+import sass from 'sass'
+import config from './config.js'
 
-const config = require("./config.js");
-const outputDir = `${config.dir.dist}/${config.dir.assets}`;
-const production = process.env.NODE_ENV === "production";
-const sourcemap = !production ? "inline" : false;
+const outputDir = `${config.dir.dist}/${config.dir.assets}`
+const production = process.env.NODE_ENV === 'production'
+const sourcemap = !production ? 'inline' : false
 
-// Prepare `css` output directory for `writeFileSync`
-fs.mkdirSync(`${outputDir}/css`, { recursive: true });
+fs.mkdirSync(`${outputDir}/css`, { recursive: true })
 
 export default {
   input: `${config.dir.assets}/js/main.js`,
   output: {
     dir: `${outputDir}/js`,
-    entryFileNames: production ? "[name].[hash].js" : "[name].js",
-    format: "es",
+    entryFileNames: production ? '[name].[hash].js' : '[name].js',
+    format: 'es',
     sourcemap,
   },
   preserveEntrySignatures: false,
   plugins: [
     replace({
-      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-      __DEV__: !production,
-      __ENABLE_SW__: false,
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      '__DEV__': !production,
+      '__ENABLE_SW__': false,
     }),
     resolve(),
     commonjs(),
     production && terser(),
     scss({
-      sass: sass,
+      sass,
       output: (styles) => {
-        const hash = crypto.createHash("sha256").update(styles).digest("hex");
+        const hash = crypto.createHash('sha256').update(styles).digest('hex')
         const filename = production
-          ? `main.${hash.substr(0, 6)}.css`
-          : "main.css";
-        fs.writeFileSync(`${outputDir}/css/${filename}`, styles);
+          ? `main.${hash.substring(0, 6)}.css`
+          : 'main.css'
+        fs.writeFileSync(`${outputDir}/css/${filename}`, styles)
       },
-      outputStyle: "compressed",
+      outputStyle: 'compressed',
       watch: `${config.dir.assets}/sass`,
     }),
   ],
-};
+}

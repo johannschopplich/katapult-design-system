@@ -1,23 +1,23 @@
+> [!IMPORTANT]
+> This repository is preserved for archival purposes only.
+>
+> I built this design system back in 2020 for websites in the KATAPULT universe. It grew alongside various side projects and reached full maturity with the launch of the new katapult-magazin.de website. Since KATAPULT is a print-first project, its distinctive style originated from the printed editions of the magazine. This design system represents the best possible translation from print to digital.
+>
+> *— Johann Schopplich, 2026*
+
 <h1 align="center">KATAPULT Design System</h1>
 
 <p align="center">
   <img src="docs/assets/img/android-chrome-512x512.png" alt="Logo of KATAPULT Design System" width="120px" height="120px">
-  <br>
-  <br>
+</p>
+
+<p align="center">
   KATAPULT Design System is an umbrella for fundamental KATAPULT design tokens and a modern web design framework to develop responsive, accessible websites and web applications for KATAPULT projects.
   <br>
 </p>
 
 <p align="center">
   <a href="https://katapult.design"><strong>katapult.design</strong></a>
-  <br>
-</p>
-
-<p align="center">
-  <a href="CONTRIBUTING.md">Contributing guidelines</a>
-  ·
-  <a href="https://gitlab.com/katapult-magazin/katapult-design-system/-/issues">Submit an issue</a>
-  <br>
   <br>
 </p>
 
@@ -123,7 +123,7 @@ The CORS for the bucket has been configured with `gsutil cors set GCP_CORS_CONF.
 ]
 ```
 
-## Notes 
+## Notes
 
 ## Changelog
 

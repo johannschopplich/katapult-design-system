@@ -1,9 +1,9 @@
-module.exports = {
+export default {
   dir: {
-    src: "src",
-    assets: "assets",
-    dist: "_site",
+    src: 'src',
+    assets: 'assets',
+    dist: '_site',
   },
-  defaultLang: "en",
+  defaultLang: 'en',
   permalinkFolders: true,
-};
+}
