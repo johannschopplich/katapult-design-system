@@ -1,9 +1,7 @@
 > [!IMPORTANT]
 > This repository is preserved for archival purposes only.
 >
-> I built this design system back in 2020 for websites in the KATAPULT universe. It grew alongside various side projects and reached full maturity with the launch of the new katapult-magazin.de website. Since KATAPULT is a print-first project, its distinctive style originated from the printed editions of the magazine. This design system represents the best possible translation from print to digital.
->
-> *— Johann Schopplich, 2026*
+> I built this design system back in 2020 for websites in the KATAPULT universe. It grew alongside various side projects and reached full maturity with the launch of the katapult-magazin.de website. After I left KATAPULT in summer 2021, the design system has not been actively maintained anymore.
 
 <h1 align="center">KATAPULT Design System</h1>
 
